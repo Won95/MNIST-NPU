@@ -1,0 +1,34 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/1ghz/2_1_floorplan.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/1ghz/2_1_floorplan.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+rtl_macro_placer -max_num_level 2 -min_channel_size "44.8 30.24" -pin_aware_channels -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /home/skdml/MNIST-NPU/physical_design/objects/nangate45/mnist_npu/1ghz/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.3
+Die Area: (0.00, 0.00) (571.72, 571.72),  Floorplan Area: (2.09, 2.80) (569.62, 568.40)
+	Number of std cell instances: 31652
+	Area of std cell instances: 73799.57
+	Number of macros: 7
+	Macros to be placed: 7
+	Area of macros: 121110.07
+	Minimum channel (Width, Height): (44.80, 30.24)
+	Area of macros with halos: 139345.53
+	Area of std cell instances + Area of macros: 194909.64
+	Floorplan area: 320994.97
+	Design Utilization: 0.61
+	Floorplan Utilization: 0.37
+	Manufacturing Grid: 10
+
+[WARNING MPL-0055] Couldn't find a solution for the specified utilization. The utilization was adjusted to 0.51228523.
+[INFO MPL-0500] Runtime: 54.00s
+Took 54 seconds: rtl_macro_placer -max_num_level 2 -min_channel_size "44.8 30.24" -pin_aware_channels -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /home/skdml/MNIST-NPU/physical_design/objects/nangate45/mnist_npu/1ghz/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.3
+Design area 194910 um^2 61% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/1ghz/2_2_floorplan_macro.odb
+Elapsed time: 0:54.49[h:]min:sec. CPU time: user 28.21 sys 86.82 (211%). Peak memory: 214168KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+2_2_floorplan_macro    .odb         54      115     2.11      209 88012c1518

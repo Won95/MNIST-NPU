@@ -3,6 +3,12 @@ module npu_top (
     input  wire clk,
     input  wire rst_n,
     input  wire start,
+    
+    
+    input wire       input_load_en,
+    input wire [9:0] input_load_addr,
+    input wire [7:0] input_load_data,
+    
     input wire        weight_load_en,
     input wire [11:0] weight_load_addr,
     input wire [63:0] weight_load_data,
@@ -53,16 +59,20 @@ module npu_top (
     input_buffer u_input_buffer (
         .clk(clk),
         .addr(input_addr),
-        .activation(fc1_activation)
+        .activation(fc1_activation),
+        .load_en(input_load_en),
+        .load_addr(input_load_addr),
+        .load_data(input_load_data)
+	  
     );
 
     weight_memory u_weight_memory (
-    .clk(clk),
-    .addr(weight_addr),
-    .weight_data(weight_data),
-    .load_en(weight_load_en),
-    .load_addr(weight_load_addr),
-    .load_data(weight_load_data)
+        .clk(clk),
+        .addr(weight_addr),
+        .weight_data(weight_data),
+        .load_en(weight_load_en),
+        .load_addr(weight_load_addr),
+        .load_data(weight_load_data)
     );
 
     // FC1: Input Buffer
