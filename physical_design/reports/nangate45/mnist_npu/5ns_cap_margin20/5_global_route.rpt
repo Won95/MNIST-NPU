@@ -1,0 +1,1078 @@
+
+==========================================================================
+global route report_tns
+--------------------------------------------------------------------------
+tns max 0.00
+
+==========================================================================
+global route report_wns
+--------------------------------------------------------------------------
+wns max 0.00
+
+==========================================================================
+global route report_worst_slack
+--------------------------------------------------------------------------
+worst slack max 0.58
+
+==========================================================================
+global route report_clock_min_period
+--------------------------------------------------------------------------
+MAIN_CLOCK period_min = 2.32 fmax = 431.10
+VIRTUAL_CLOCK period_min = 0.00 fmax = inf
+
+==========================================================================
+global route report_clock_skew
+--------------------------------------------------------------------------
+Clock MAIN_CLOCK
+   0.42 source latency u_pe_array.pe8.acc[15]$_SDFFE_PP0P_/CK ^
+  -0.38 target latency fc2_score[7][15]$_SDFFCE_PN0P_/CK ^
+   0.20 clock uncertainty
+   0.00 CRPR
+--------------
+   0.24 setup skew
+
+Clock VIRTUAL_CLOCK
+No launch/capture paths found.
+
+
+==========================================================================
+global route report_checks -path_delay min
+--------------------------------------------------------------------------
+Startpoint: weight_load_addr[11] (input port clocked by VIRTUAL_CLOCK)
+Endpoint: u_weight_memory.GEN_SRAM[4].u_sram
+          (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Path Group: MAIN_CLOCK
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                  0.00    0.00    0.00   clock VIRTUAL_CLOCK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.00    0.00 v input external delay
+     1    2.40    0.01    0.00    0.00 v weight_load_addr[11] (in)
+                                         weight_load_addr[11] (net)
+                  0.01    0.00    0.00 v hold5302/A (CLKBUF_X1)
+     1    0.96    0.01    0.03    0.03 v hold5302/Z (CLKBUF_X1)
+                                         net5301 (net)
+                  0.01    0.00    0.03 v hold5212/A (CLKBUF_X1)
+     1    0.82    0.01    0.02    0.06 v hold5212/Z (CLKBUF_X1)
+                                         net5211 (net)
+                  0.01    0.00    0.06 v hold5303/A (CLKBUF_X1)
+     1    1.09    0.01    0.03    0.08 v hold5303/Z (CLKBUF_X1)
+                                         net5302 (net)
+                  0.01    0.00    0.08 v hold4806/A (CLKBUF_X1)
+     1    1.10    0.01    0.03    0.11 v hold4806/Z (CLKBUF_X1)
+                                         net4805 (net)
+                  0.01    0.00    0.11 v hold5304/A (CLKBUF_X1)
+     1    1.21    0.01    0.03    0.13 v hold5304/Z (CLKBUF_X1)
+                                         net5303 (net)
+                  0.01    0.00    0.13 v hold5213/A (CLKBUF_X1)
+     1    0.93    0.01    0.03    0.16 v hold5213/Z (CLKBUF_X1)
+                                         net5212 (net)
+                  0.01    0.00    0.16 v hold5305/A (CLKBUF_X1)
+     1    1.40    0.01    0.03    0.19 v hold5305/Z (CLKBUF_X1)
+                                         net5304 (net)
+                  0.01    0.00    0.19 v input472/A (BUF_X1)
+     1    2.76    0.01    0.03    0.21 v input472/Z (BUF_X1)
+                                         net471 (net)
+                  0.01    0.00    0.21 v hold5306/A (CLKBUF_X1)
+     1    2.67    0.01    0.03    0.24 v hold5306/Z (CLKBUF_X1)
+                                         net5305 (net)
+                  0.01    0.00    0.24 v hold5214/A (CLKBUF_X1)
+     1    6.10    0.02    0.04    0.29 v hold5214/Z (CLKBUF_X1)
+                                         net5213 (net)
+                  0.02    0.00    0.29 v hold4807/A (CLKBUF_X1)
+     1    6.02    0.02    0.05    0.33 v hold4807/Z (CLKBUF_X1)
+                                         net4806 (net)
+                  0.02    0.00    0.33 v hold5215/A (CLKBUF_X1)
+     5   18.06    0.04    0.08    0.41 v hold5215/Z (CLKBUF_X1)
+                                         net5214 (net)
+                  0.04    0.00    0.41 v _54769_/A2 (NAND2_X1)
+     1    0.93    0.01    0.03    0.44 ^ _54769_/ZN (NAND2_X1)
+                                         _22921_ (net)
+                  0.01    0.00    0.44 ^ hold4808/A (CLKBUF_X1)
+     2    4.37    0.01    0.04    0.47 ^ hold4808/Z (CLKBUF_X1)
+                                         net4807 (net)
+                  0.01    0.00    0.47 ^ _54770_/A2 (NOR2_X1)
+     1    0.98    0.01    0.01    0.48 v _54770_/ZN (NOR2_X1)
+                                         _08962_ (net)
+                  0.01    0.00    0.48 v hold4809/A (CLKBUF_X1)
+     1    5.89    0.02    0.04    0.52 v hold4809/Z (CLKBUF_X1)
+                                         net4808 (net)
+                  0.02    0.00    0.52 v u_weight_memory.GEN_SRAM[4].u_sram/we_in (fakeram45_512x64)
+                                  0.52   data arrival time
+
+                          0.00    0.00   clock MAIN_CLOCK (rise edge)
+                          0.00    0.00   clock source latency
+     2   69.26    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.01    0.01    0.01 ^ delaybuf_0_MAIN_CLOCK/A (CLKBUF_X3)
+     1   22.24    0.02    0.04    0.05 ^ delaybuf_0_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         delaynet_0_MAIN_CLOCK (net)
+                  0.02    0.00    0.05 ^ delaybuf_1_MAIN_CLOCK/A (CLKBUF_X3)
+     1   15.04    0.01    0.04    0.10 ^ delaybuf_1_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         delaynet_1_MAIN_CLOCK (net)
+                  0.01    0.00    0.10 ^ delaybuf_2_MAIN_CLOCK/A (CLKBUF_X3)
+     1   16.69    0.02    0.04    0.14 ^ delaybuf_2_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         delaynet_2_MAIN_CLOCK (net)
+                  0.02    0.00    0.14 ^ clkbuf_0_clk/A (CLKBUF_X3)
+     2   29.47    0.02    0.05    0.20 ^ clkbuf_0_clk/Z (CLKBUF_X3)
+                                         clknet_0_clk (net)
+                  0.02    0.00    0.20 ^ clkbuf_1_1__f_clk/A (CLKBUF_X3)
+     4  171.72    0.12    0.16    0.36 ^ clkbuf_1_1__f_clk/Z (CLKBUF_X3)
+                                         clknet_1_1__leaf_clk (net)
+                  0.19    0.01    0.37 ^ u_weight_memory.GEN_SRAM[4].u_sram/clk (fakeram45_512x64)
+                          0.10    0.47   clock uncertainty
+                          0.00    0.47   clock reconvergence pessimism
+                          0.05    0.52   library hold time
+                                  0.52   data required time
+-----------------------------------------------------------------------------
+                                  0.52   data required time
+                                 -0.52   data arrival time
+-----------------------------------------------------------------------------
+                                  0.00   slack (MET)
+
+
+Startpoint: u_controller.done$_SDFF_PN0_
+            (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Endpoint: done (output port clocked by VIRTUAL_CLOCK)
+Path Group: VIRTUAL_CLOCK
+Path Type: min
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock MAIN_CLOCK (rise edge)
+                          0.00    0.00   clock source latency
+     2   69.26    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.03    0.02    0.02 ^ clkbuf_regs_0_MAIN_CLOCK/A (CLKBUF_X3)
+     1    1.60    0.01    0.03    0.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         clk_regs (net)
+                  0.01    0.00    0.06 ^ clkbuf_0_clk_regs/A (CLKBUF_X3)
+     4   46.89    0.04    0.06    0.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_0_clk_regs (net)
+                  0.04    0.00    0.12 ^ clkbuf_2_1_0_clk_regs/A (CLKBUF_X3)
+     2   30.01    0.02    0.06    0.18 ^ clkbuf_2_1_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_2_1_0_clk_regs (net)
+                  0.03    0.01    0.19 ^ clkbuf_3_2_0_clk_regs/A (CLKBUF_X3)
+     8   40.62    0.03    0.07    0.25 ^ clkbuf_3_2_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_3_2_0_clk_regs (net)
+                  0.03    0.00    0.26 ^ clkbuf_6_17_0_clk_regs/A (CLKBUF_X3)
+     2    7.12    0.01    0.04    0.30 ^ clkbuf_6_17_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_6_17_0_clk_regs (net)
+                  0.01    0.00    0.30 ^ clkbuf_7_34__f_clk_regs/A (CLKBUF_X3)
+     9   27.85    0.02    0.05    0.35 ^ clkbuf_7_34__f_clk_regs/Z (CLKBUF_X3)
+                                         clknet_7_34__leaf_clk_regs (net)
+                  0.02    0.00    0.35 ^ clkbuf_leaf_896_clk_regs/A (CLKBUF_X3)
+     7    9.79    0.01    0.04    0.39 ^ clkbuf_leaf_896_clk_regs/Z (CLKBUF_X3)
+                                         clknet_leaf_896_clk_regs (net)
+                  0.01    0.00    0.39 ^ u_controller.done$_SDFF_PN0_/CK (DFF_X1)
+     1    1.60    0.01    0.08    0.47 v u_controller.done$_SDFF_PN0_/Q (DFF_X1)
+                                         net550 (net)
+                  0.01    0.00    0.47 v output551/A (BUF_X1)
+     1    7.36    0.01    0.03    0.51 v output551/Z (BUF_X1)
+                                         done (net)
+                  0.01    0.00    0.51 v done (out)
+                                  0.51   data arrival time
+
+                  0.00    0.00    0.00   clock VIRTUAL_CLOCK (rise edge)
+                          0.00    0.00   clock network delay (ideal)
+                          0.10    0.10   clock uncertainty
+                          0.00    0.10   clock reconvergence pessimism
+                          0.00    0.10   output external delay
+                                  0.10   data required time
+-----------------------------------------------------------------------------
+                                  0.10   data required time
+                                 -0.51   data arrival time
+-----------------------------------------------------------------------------
+                                  0.41   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay max
+--------------------------------------------------------------------------
+Startpoint: u_weight_memory.bank_sel_d[0]$_DFF_P_
+            (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Endpoint: u_pe_array.pe4.acc[30]$_SDFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Path Group: MAIN_CLOCK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock MAIN_CLOCK (rise edge)
+                          0.00    0.00   clock source latency
+     2   69.26    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.03    0.02    0.02 ^ clkbuf_regs_0_MAIN_CLOCK/A (CLKBUF_X3)
+     1    1.60    0.01    0.03    0.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         clk_regs (net)
+                  0.01    0.00    0.06 ^ clkbuf_0_clk_regs/A (CLKBUF_X3)
+     4   46.89    0.04    0.06    0.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_0_clk_regs (net)
+                  0.04    0.00    0.12 ^ clkbuf_2_1_0_clk_regs/A (CLKBUF_X3)
+     2   30.01    0.02    0.06    0.18 ^ clkbuf_2_1_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_2_1_0_clk_regs (net)
+                  0.03    0.00    0.19 ^ clkbuf_3_3_0_clk_regs/A (CLKBUF_X3)
+     8   43.16    0.03    0.07    0.25 ^ clkbuf_3_3_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_3_3_0_clk_regs (net)
+                  0.03    0.00    0.26 ^ clkbuf_6_30_0_clk_regs/A (CLKBUF_X3)
+     2    3.91    0.01    0.04    0.30 ^ clkbuf_6_30_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_6_30_0_clk_regs (net)
+                  0.01    0.00    0.30 ^ clkbuf_7_61__f_clk_regs/A (CLKBUF_X3)
+     8   23.64    0.02    0.05    0.34 ^ clkbuf_7_61__f_clk_regs/Z (CLKBUF_X3)
+                                         clknet_7_61__leaf_clk_regs (net)
+                  0.02    0.00    0.34 ^ clkbuf_leaf_813_clk_regs/A (CLKBUF_X3)
+     7   10.13    0.01    0.04    0.38 ^ clkbuf_leaf_813_clk_regs/Z (CLKBUF_X3)
+                                         clknet_leaf_813_clk_regs (net)
+                  0.01    0.00    0.38 ^ u_weight_memory.bank_sel_d[0]$_DFF_P_/CK (DFF_X1)
+     4   13.42    0.02    0.10    0.48 v u_weight_memory.bank_sel_d[0]$_DFF_P_/Q (DFF_X1)
+                                         u_weight_memory.bank_sel_d[0] (net)
+                  0.02    0.00    0.49 v _33339_/A2 (NOR3_X2)
+     7   22.86    0.09    0.12    0.61 ^ _33339_/ZN (NOR3_X2)
+                                         _09387_ (net)
+                  0.09    0.00    0.61 ^ place2814/A (BUF_X2)
+    26   60.18    0.07    0.09    0.70 ^ place2814/Z (BUF_X2)
+                                         net2813 (net)
+                  0.07    0.02    0.72 ^ place2813/A (BUF_X2)
+    33   82.98    0.09    0.12    0.83 ^ place2813/Z (BUF_X2)
+                                         net2812 (net)
+                  0.09    0.01    0.84 ^ _34189_/A2 (AOI222_X1)
+     1    4.31    0.03    0.04    0.88 v _34189_/ZN (AOI222_X1)
+                                         _09781_ (net)
+                  0.03    0.00    0.88 v _34192_/A1 (NAND3_X1)
+     8   20.72    0.05    0.07    0.95 ^ _34192_/ZN (NAND3_X1)
+                                         _09784_ (net)
+                  0.05    0.01    0.95 ^ _34193_/A2 (AND2_X1)
+     8   46.76    0.11    0.15    1.10 ^ _34193_/ZN (AND2_X1)
+                                         _00076_ (net)
+                  0.11    0.01    1.11 ^ place2459/A (BUF_X2)
+    18   68.99    0.08    0.11    1.21 ^ place2459/Z (BUF_X2)
+                                         net2458 (net)
+                  0.08    0.00    1.21 ^ _55170_/CI (FA_X1)
+     1    2.82    0.02    0.11    1.33 v _55170_/S (FA_X1)
+                                         _30983_ (net)
+                  0.02    0.00    1.33 v _55216_/CI (FA_X1)
+     1    3.20    0.01    0.12    1.44 ^ _55216_/S (FA_X1)
+                                         _31096_ (net)
+                  0.01    0.00    1.44 ^ _55248_/CI (FA_X1)
+     1    4.53    0.02    0.10    1.54 v _55248_/S (FA_X1)
+                                         _31165_ (net)
+                  0.02    0.00    1.54 v _55268_/B (FA_X1)
+     1   17.90    0.04    0.16    1.70 ^ _55268_/S (FA_X1)
+                                         _31210_ (net)
+                  0.04    0.00    1.70 ^ _56309_/B (HA_X1)
+     1   11.05    0.06    0.10    1.80 ^ _56309_/S (HA_X1)
+                                         _32376_ (net)
+                  0.06    0.00    1.80 ^ _56051_/B (HA_X1)
+     4    8.16    0.05    0.09    1.89 ^ _56051_/S (HA_X1)
+                                         _00855_ (net)
+                  0.05    0.00    1.89 ^ _42862_/A1 (AND2_X1)
+     3   26.78    0.06    0.10    1.99 ^ _42862_/ZN (AND2_X1)
+                                         _18031_ (net)
+                  0.06    0.00    1.99 ^ _42863_/A2 (NAND2_X1)
+     1    1.14    0.01    0.02    2.01 v _42863_/ZN (NAND2_X1)
+                                         _18032_ (net)
+                  0.01    0.00    2.01 v _42864_/A3 (OR3_X1)
+     2   24.51    0.04    0.12    2.13 v _42864_/ZN (OR3_X1)
+                                         _18033_ (net)
+                  0.04    0.01    2.14 v _42873_/A1 (AOI22_X1)
+     2    7.28    0.05    0.07    2.21 ^ _42873_/ZN (AOI22_X1)
+                                         _18042_ (net)
+                  0.05    0.00    2.21 ^ _42874_/B2 (AOI221_X2)
+     2    4.23    0.02    0.03    2.24 v _42874_/ZN (AOI221_X2)
+                                         _18043_ (net)
+                  0.02    0.00    2.24 v _42875_/B2 (AOI21_X1)
+     5   19.79    0.10    0.13    2.37 ^ _42875_/ZN (AOI21_X1)
+                                         _18044_ (net)
+                  0.10    0.00    2.37 ^ _42880_/C1 (AOI221_X1)
+     1    7.92    0.04    0.05    2.42 v _42880_/ZN (AOI221_X1)
+                                         _18049_ (net)
+                  0.04    0.00    2.42 v _42881_/S (MUX2_X1)
+     1    2.75    0.01    0.07    2.49 ^ _42881_/Z (MUX2_X1)
+                                         _18050_ (net)
+                  0.01    0.00    2.49 ^ _42883_/A1 (NAND2_X1)
+     1    2.00    0.01    0.01    2.50 v _42883_/ZN (NAND2_X1)
+                                         _01970_ (net)
+                  0.01    0.00    2.50 v u_pe_array.pe4.acc[30]$_SDFFE_PP0P_/D (DFF_X1)
+                                  2.50   data arrival time
+
+                          5.00    5.00   clock MAIN_CLOCK (rise edge)
+                          0.00    5.00   clock source latency
+     2   69.26    0.00    0.00    5.00 ^ clk (in)
+                                         clk (net)
+                  0.03    0.02    5.02 ^ clkbuf_regs_0_MAIN_CLOCK/A (CLKBUF_X3)
+     1    1.60    0.01    0.03    5.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         clk_regs (net)
+                  0.01    0.00    5.06 ^ clkbuf_0_clk_regs/A (CLKBUF_X3)
+     4   46.89    0.04    0.06    5.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_0_clk_regs (net)
+                  0.04    0.00    5.12 ^ clkbuf_2_1_0_clk_regs/A (CLKBUF_X3)
+     2   30.01    0.02    0.06    5.18 ^ clkbuf_2_1_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_2_1_0_clk_regs (net)
+                  0.03    0.01    5.19 ^ clkbuf_3_2_0_clk_regs/A (CLKBUF_X3)
+     8   40.62    0.03    0.07    5.25 ^ clkbuf_3_2_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_3_2_0_clk_regs (net)
+                  0.03    0.00    5.25 ^ clkbuf_6_21_0_clk_regs/A (CLKBUF_X3)
+     2    7.37    0.01    0.04    5.30 ^ clkbuf_6_21_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_6_21_0_clk_regs (net)
+                  0.01    0.00    5.30 ^ clkbuf_7_42__f_clk_regs/A (CLKBUF_X3)
+     7   53.49    0.04    0.06    5.36 ^ clkbuf_7_42__f_clk_regs/Z (CLKBUF_X3)
+                                         clknet_7_42__leaf_clk_regs (net)
+                  0.04    0.01    5.37 ^ clkbuf_leaf_891_clk_regs/A (CLKBUF_X3)
+     6    9.99    0.01    0.05    5.42 ^ clkbuf_leaf_891_clk_regs/Z (CLKBUF_X3)
+                                         clknet_leaf_891_clk_regs (net)
+                  0.01    0.00    5.42 ^ u_pe_array.pe4.acc[30]$_SDFFE_PP0P_/CK (DFF_X1)
+                         -0.20    5.22   clock uncertainty
+                          0.00    5.22   clock reconvergence pessimism
+                         -0.04    5.18   library setup time
+                                  5.18   data required time
+-----------------------------------------------------------------------------
+                                  5.18   data required time
+                                 -2.50   data arrival time
+-----------------------------------------------------------------------------
+                                  2.68   slack (MET)
+
+
+Startpoint: fc2_score[6][14]$_SDFFCE_PN0P_
+            (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Endpoint: digit[0] (output port clocked by VIRTUAL_CLOCK)
+Path Group: VIRTUAL_CLOCK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock MAIN_CLOCK (rise edge)
+                          0.00    0.00   clock source latency
+     2   69.26    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.03    0.02    0.02 ^ clkbuf_regs_0_MAIN_CLOCK/A (CLKBUF_X3)
+     1    1.60    0.01    0.03    0.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         clk_regs (net)
+                  0.01    0.00    0.06 ^ clkbuf_0_clk_regs/A (CLKBUF_X3)
+     4   46.89    0.04    0.06    0.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_0_clk_regs (net)
+                  0.04    0.00    0.12 ^ clkbuf_2_1_0_clk_regs/A (CLKBUF_X3)
+     2   30.01    0.02    0.06    0.18 ^ clkbuf_2_1_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_2_1_0_clk_regs (net)
+                  0.03    0.01    0.19 ^ clkbuf_3_2_0_clk_regs/A (CLKBUF_X3)
+     8   40.62    0.03    0.07    0.25 ^ clkbuf_3_2_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_3_2_0_clk_regs (net)
+                  0.03    0.00    0.26 ^ clkbuf_6_17_0_clk_regs/A (CLKBUF_X3)
+     2    7.12    0.01    0.04    0.30 ^ clkbuf_6_17_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_6_17_0_clk_regs (net)
+                  0.01    0.00    0.30 ^ clkbuf_7_35__f_clk_regs/A (CLKBUF_X3)
+     8   22.77    0.02    0.05    0.34 ^ clkbuf_7_35__f_clk_regs/Z (CLKBUF_X3)
+                                         clknet_7_35__leaf_clk_regs (net)
+                  0.02    0.00    0.34 ^ clkbuf_leaf_916_clk_regs/A (CLKBUF_X3)
+     7    9.53    0.01    0.04    0.38 ^ clkbuf_leaf_916_clk_regs/Z (CLKBUF_X3)
+                                         clknet_leaf_916_clk_regs (net)
+                  0.01    0.00    0.38 ^ fc2_score[6][14]$_SDFFCE_PN0P_/CK (DFF_X1)
+     3    7.95    0.02    0.10    0.49 ^ fc2_score[6][14]$_SDFFCE_PN0P_/Q (DFF_X1)
+                                         fc2_score[6][14] (net)
+                  0.02    0.00    0.49 ^ _56633_/A (HA_X1)
+     2    4.17    0.03    0.06    0.55 ^ _56633_/S (HA_X1)
+                                         _01636_ (net)
+                  0.03    0.00    0.55 ^ _32916_/A2 (NAND4_X1)
+     2    6.51    0.03    0.05    0.60 v _32916_/ZN (NAND4_X1)
+                                         _09039_ (net)
+                  0.03    0.00    0.60 v _32918_/A1 (OR2_X1)
+     2    4.25    0.01    0.06    0.67 v _32918_/ZN (OR2_X1)
+                                         _09041_ (net)
+                  0.01    0.00    0.67 v _32921_/A1 (NOR3_X1)
+     1   11.40    0.09    0.11    0.78 ^ _32921_/ZN (NOR3_X1)
+                                         _09044_ (net)
+                  0.09    0.00    0.78 ^ _32931_/B1 (AOI221_X1)
+     1    2.02    0.03    0.04    0.82 v _32931_/ZN (AOI221_X1)
+                                         _09054_ (net)
+                  0.03    0.00    0.82 v _32948_/A (OAI21_X1)
+     1    1.97    0.02    0.03    0.85 ^ _32948_/ZN (OAI21_X1)
+                                         _09071_ (net)
+                  0.02    0.00    0.85 ^ _32974_/B (MUX2_X1)
+    18   44.40    0.10    0.14    0.99 ^ _32974_/Z (MUX2_X1)
+                                         _09097_ (net)
+                  0.10    0.00    0.99 ^ place2380/A (BUF_X1)
+    16   44.00    0.10    0.13    1.12 ^ place2380/Z (BUF_X1)
+                                         net2379 (net)
+                  0.10    0.00    1.13 ^ _34033_/S (MUX2_X1)
+     3    7.95    0.02    0.07    1.19 ^ _34033_/Z (MUX2_X1)
+                                         _01107_ (net)
+                  0.02    0.00    1.19 ^ _56204_/A (HA_X1)
+     2    4.07    0.03    0.06    1.26 ^ _56204_/S (HA_X1)
+                                         _01109_ (net)
+                  0.03    0.00    1.26 ^ _33065_/A2 (NAND4_X1)
+     2    9.09    0.04    0.06    1.32 v _33065_/ZN (NAND4_X1)
+                                         _09183_ (net)
+                  0.04    0.00    1.32 v _33068_/A1 (NOR3_X1)
+     2   10.78    0.09    0.12    1.44 ^ _33068_/ZN (NOR3_X1)
+                                         _09186_ (net)
+                  0.09    0.00    1.44 ^ _33100_/A (OAI21_X1)
+     1    2.93    0.02    0.03    1.47 v _33100_/ZN (OAI21_X1)
+                                         _09218_ (net)
+                  0.02    0.00    1.47 v _33101_/A3 (AND3_X1)
+     1    1.66    0.01    0.04    1.51 v _33101_/ZN (AND3_X1)
+                                         _09219_ (net)
+                  0.01    0.00    1.51 v _33115_/B1 (AOI21_X1)
+     2    5.03    0.04    0.04    1.55 ^ _33115_/ZN (AOI21_X1)
+                                         _09233_ (net)
+                  0.04    0.00    1.56 ^ _33116_/S (MUX2_X1)
+    16   43.47    0.10    0.14    1.70 ^ _33116_/Z (MUX2_X1)
+                                         _09234_ (net)
+                  0.10    0.00    1.70 ^ _33273_/S (MUX2_X1)
+     1    4.31    0.02    0.06    1.76 ^ _33273_/Z (MUX2_X1)
+                                         _01767_ (net)
+                  0.02    0.00    1.76 ^ _56707_/A (HA_X1)
+     4   12.09    0.07    0.10    1.86 ^ _56707_/S (HA_X1)
+                                         _01769_ (net)
+                  0.07    0.00    1.86 ^ _40954_/A2 (NAND4_X1)
+     3    5.48    0.03    0.06    1.92 v _40954_/ZN (NAND4_X1)
+                                         _16371_ (net)
+                  0.03    0.00    1.92 v _40981_/A1 (NOR3_X1)
+     3    8.44    0.07    0.10    2.01 ^ _40981_/ZN (NOR3_X1)
+                                         _16398_ (net)
+                  0.07    0.00    2.01 ^ _40983_/A2 (NAND3_X1)
+     2    4.24    0.02    0.04    2.06 v _40983_/ZN (NAND3_X1)
+                                         _16400_ (net)
+                  0.02    0.00    2.06 v _40986_/A1 (OR3_X1)
+     2    4.56    0.02    0.08    2.14 v _40986_/ZN (OR3_X1)
+                                         _16403_ (net)
+                  0.02    0.00    2.14 v _40987_/A (INV_X1)
+     2    4.29    0.01    0.02    2.16 ^ _40987_/ZN (INV_X1)
+                                         _16404_ (net)
+                  0.01    0.00    2.16 ^ _41002_/C1 (AOI221_X1)
+     3    4.51    0.03    0.02    2.18 v _41002_/ZN (AOI221_X1)
+                                         _16419_ (net)
+                  0.03    0.00    2.18 v _41041_/A1 (NAND3_X1)
+     3    5.76    0.02    0.03    2.21 ^ _41041_/ZN (NAND3_X1)
+                                         _16458_ (net)
+                  0.02    0.00    2.21 ^ _41042_/A2 (NAND2_X1)
+     3    6.86    0.02    0.03    2.24 v _41042_/ZN (NAND2_X1)
+                                         _16459_ (net)
+                  0.02    0.00    2.24 v _41043_/A2 (NAND2_X1)
+    18   39.35    0.09    0.11    2.35 ^ _41043_/ZN (NAND2_X1)
+                                         _16460_ (net)
+                  0.09    0.00    2.35 ^ place2372/A (BUF_X1)
+    15   36.21    0.08    0.11    2.47 ^ place2372/Z (BUF_X1)
+                                         net2371 (net)
+                  0.08    0.01    2.47 ^ _41157_/B1 (OAI221_X1)
+     1    4.29    0.03    0.05    2.52 v _41157_/ZN (OAI221_X1)
+                                         u_argmax.max3[33] (net)
+                  0.03    0.00    2.52 v _56029_/A (HA_X1)
+     2    3.35    0.02    0.06    2.58 v _56029_/S (HA_X1)
+                                         _00810_ (net)
+                  0.02    0.00    2.58 v _41199_/A (INV_X1)
+     1    2.43    0.01    0.02    2.60 ^ _41199_/ZN (INV_X1)
+                                         _16547_ (net)
+                  0.01    0.00    2.60 ^ _41200_/B1 (OAI21_X1)
+     1    1.71    0.01    0.01    2.62 v _41200_/ZN (OAI21_X1)
+                                         _16548_ (net)
+                  0.01    0.00    2.62 v _41201_/B2 (AOI21_X1)
+     1    2.45    0.02    0.03    2.65 ^ _41201_/ZN (AOI21_X1)
+                                         _16549_ (net)
+                  0.02    0.00    2.65 ^ _41202_/B2 (OAI21_X1)
+     1    2.66    0.01    0.02    2.67 v _41202_/ZN (OAI21_X1)
+                                         _16550_ (net)
+                  0.01    0.00    2.67 v _41207_/B2 (AOI221_X1)
+     1    4.77    0.06    0.10    2.78 ^ _41207_/ZN (AOI221_X1)
+                                         _16555_ (net)
+                  0.06    0.00    2.78 ^ _41213_/B1 (OAI221_X1)
+     1    6.63    0.03    0.05    2.83 v _41213_/ZN (OAI221_X1)
+                                         _16561_ (net)
+                  0.03    0.00    2.83 v _41226_/B2 (AOI221_X1)
+     1    2.36    0.05    0.09    2.92 ^ _41226_/ZN (AOI221_X1)
+                                         _16574_ (net)
+                  0.05    0.00    2.92 ^ _41227_/S (MUX2_X1)
+     5   11.36    0.03    0.07    2.99 ^ _41227_/Z (MUX2_X1)
+                                         net549 (net)
+                  0.03    0.00    2.99 ^ _41228_/A2 (NOR2_X1)
+     2    3.35    0.01    0.02    3.01 v _41228_/ZN (NOR2_X1)
+                                         net548 (net)
+                  0.01    0.00    3.01 v _41234_/B2 (AOI221_X1)
+     1    1.09    0.04    0.07    3.08 ^ _41234_/ZN (AOI221_X1)
+                                         net546 (net)
+                  0.04    0.00    3.08 ^ place2370/A (BUF_X1)
+     1   22.44    0.05    0.08    3.16 ^ place2370/Z (BUF_X1)
+                                         net2369 (net)
+                  0.05    0.00    3.16 ^ output547/A (BUF_X1)
+     1   12.92    0.03    0.06    3.22 ^ output547/Z (BUF_X1)
+                                         digit[0] (net)
+                  0.03    0.00    3.22 ^ digit[0] (out)
+                                  3.22   data arrival time
+
+                  0.00    5.00    5.00   clock VIRTUAL_CLOCK (rise edge)
+                          0.00    5.00   clock network delay (ideal)
+                         -0.20    4.80   clock uncertainty
+                          0.00    4.80   clock reconvergence pessimism
+                         -1.00    3.80   output external delay
+                                  3.80   data required time
+-----------------------------------------------------------------------------
+                                  3.80   data required time
+                                 -3.22   data arrival time
+-----------------------------------------------------------------------------
+                                  0.58   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -unconstrained
+--------------------------------------------------------------------------
+Startpoint: u_weight_memory.bank_sel_d[0]$_DFF_P_
+            (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Endpoint: u_pe_array.pe4.acc[30]$_SDFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Path Group: MAIN_CLOCK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock MAIN_CLOCK (rise edge)
+                          0.00    0.00   clock source latency
+     2   69.26    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.03    0.02    0.02 ^ clkbuf_regs_0_MAIN_CLOCK/A (CLKBUF_X3)
+     1    1.60    0.01    0.03    0.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         clk_regs (net)
+                  0.01    0.00    0.06 ^ clkbuf_0_clk_regs/A (CLKBUF_X3)
+     4   46.89    0.04    0.06    0.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_0_clk_regs (net)
+                  0.04    0.00    0.12 ^ clkbuf_2_1_0_clk_regs/A (CLKBUF_X3)
+     2   30.01    0.02    0.06    0.18 ^ clkbuf_2_1_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_2_1_0_clk_regs (net)
+                  0.03    0.00    0.19 ^ clkbuf_3_3_0_clk_regs/A (CLKBUF_X3)
+     8   43.16    0.03    0.07    0.25 ^ clkbuf_3_3_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_3_3_0_clk_regs (net)
+                  0.03    0.00    0.26 ^ clkbuf_6_30_0_clk_regs/A (CLKBUF_X3)
+     2    3.91    0.01    0.04    0.30 ^ clkbuf_6_30_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_6_30_0_clk_regs (net)
+                  0.01    0.00    0.30 ^ clkbuf_7_61__f_clk_regs/A (CLKBUF_X3)
+     8   23.64    0.02    0.05    0.34 ^ clkbuf_7_61__f_clk_regs/Z (CLKBUF_X3)
+                                         clknet_7_61__leaf_clk_regs (net)
+                  0.02    0.00    0.34 ^ clkbuf_leaf_813_clk_regs/A (CLKBUF_X3)
+     7   10.13    0.01    0.04    0.38 ^ clkbuf_leaf_813_clk_regs/Z (CLKBUF_X3)
+                                         clknet_leaf_813_clk_regs (net)
+                  0.01    0.00    0.38 ^ u_weight_memory.bank_sel_d[0]$_DFF_P_/CK (DFF_X1)
+     4   13.42    0.02    0.10    0.48 v u_weight_memory.bank_sel_d[0]$_DFF_P_/Q (DFF_X1)
+                                         u_weight_memory.bank_sel_d[0] (net)
+                  0.02    0.00    0.49 v _33339_/A2 (NOR3_X2)
+     7   22.86    0.09    0.12    0.61 ^ _33339_/ZN (NOR3_X2)
+                                         _09387_ (net)
+                  0.09    0.00    0.61 ^ place2814/A (BUF_X2)
+    26   60.18    0.07    0.09    0.70 ^ place2814/Z (BUF_X2)
+                                         net2813 (net)
+                  0.07    0.02    0.72 ^ place2813/A (BUF_X2)
+    33   82.98    0.09    0.12    0.83 ^ place2813/Z (BUF_X2)
+                                         net2812 (net)
+                  0.09    0.01    0.84 ^ _34189_/A2 (AOI222_X1)
+     1    4.31    0.03    0.04    0.88 v _34189_/ZN (AOI222_X1)
+                                         _09781_ (net)
+                  0.03    0.00    0.88 v _34192_/A1 (NAND3_X1)
+     8   20.72    0.05    0.07    0.95 ^ _34192_/ZN (NAND3_X1)
+                                         _09784_ (net)
+                  0.05    0.01    0.95 ^ _34193_/A2 (AND2_X1)
+     8   46.76    0.11    0.15    1.10 ^ _34193_/ZN (AND2_X1)
+                                         _00076_ (net)
+                  0.11    0.01    1.11 ^ place2459/A (BUF_X2)
+    18   68.99    0.08    0.11    1.21 ^ place2459/Z (BUF_X2)
+                                         net2458 (net)
+                  0.08    0.00    1.21 ^ _55170_/CI (FA_X1)
+     1    2.82    0.02    0.11    1.33 v _55170_/S (FA_X1)
+                                         _30983_ (net)
+                  0.02    0.00    1.33 v _55216_/CI (FA_X1)
+     1    3.20    0.01    0.12    1.44 ^ _55216_/S (FA_X1)
+                                         _31096_ (net)
+                  0.01    0.00    1.44 ^ _55248_/CI (FA_X1)
+     1    4.53    0.02    0.10    1.54 v _55248_/S (FA_X1)
+                                         _31165_ (net)
+                  0.02    0.00    1.54 v _55268_/B (FA_X1)
+     1   17.90    0.04    0.16    1.70 ^ _55268_/S (FA_X1)
+                                         _31210_ (net)
+                  0.04    0.00    1.70 ^ _56309_/B (HA_X1)
+     1   11.05    0.06    0.10    1.80 ^ _56309_/S (HA_X1)
+                                         _32376_ (net)
+                  0.06    0.00    1.80 ^ _56051_/B (HA_X1)
+     4    8.16    0.05    0.09    1.89 ^ _56051_/S (HA_X1)
+                                         _00855_ (net)
+                  0.05    0.00    1.89 ^ _42862_/A1 (AND2_X1)
+     3   26.78    0.06    0.10    1.99 ^ _42862_/ZN (AND2_X1)
+                                         _18031_ (net)
+                  0.06    0.00    1.99 ^ _42863_/A2 (NAND2_X1)
+     1    1.14    0.01    0.02    2.01 v _42863_/ZN (NAND2_X1)
+                                         _18032_ (net)
+                  0.01    0.00    2.01 v _42864_/A3 (OR3_X1)
+     2   24.51    0.04    0.12    2.13 v _42864_/ZN (OR3_X1)
+                                         _18033_ (net)
+                  0.04    0.01    2.14 v _42873_/A1 (AOI22_X1)
+     2    7.28    0.05    0.07    2.21 ^ _42873_/ZN (AOI22_X1)
+                                         _18042_ (net)
+                  0.05    0.00    2.21 ^ _42874_/B2 (AOI221_X2)
+     2    4.23    0.02    0.03    2.24 v _42874_/ZN (AOI221_X2)
+                                         _18043_ (net)
+                  0.02    0.00    2.24 v _42875_/B2 (AOI21_X1)
+     5   19.79    0.10    0.13    2.37 ^ _42875_/ZN (AOI21_X1)
+                                         _18044_ (net)
+                  0.10    0.00    2.37 ^ _42880_/C1 (AOI221_X1)
+     1    7.92    0.04    0.05    2.42 v _42880_/ZN (AOI221_X1)
+                                         _18049_ (net)
+                  0.04    0.00    2.42 v _42881_/S (MUX2_X1)
+     1    2.75    0.01    0.07    2.49 ^ _42881_/Z (MUX2_X1)
+                                         _18050_ (net)
+                  0.01    0.00    2.49 ^ _42883_/A1 (NAND2_X1)
+     1    2.00    0.01    0.01    2.50 v _42883_/ZN (NAND2_X1)
+                                         _01970_ (net)
+                  0.01    0.00    2.50 v u_pe_array.pe4.acc[30]$_SDFFE_PP0P_/D (DFF_X1)
+                                  2.50   data arrival time
+
+                          5.00    5.00   clock MAIN_CLOCK (rise edge)
+                          0.00    5.00   clock source latency
+     2   69.26    0.00    0.00    5.00 ^ clk (in)
+                                         clk (net)
+                  0.03    0.02    5.02 ^ clkbuf_regs_0_MAIN_CLOCK/A (CLKBUF_X3)
+     1    1.60    0.01    0.03    5.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         clk_regs (net)
+                  0.01    0.00    5.06 ^ clkbuf_0_clk_regs/A (CLKBUF_X3)
+     4   46.89    0.04    0.06    5.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_0_clk_regs (net)
+                  0.04    0.00    5.12 ^ clkbuf_2_1_0_clk_regs/A (CLKBUF_X3)
+     2   30.01    0.02    0.06    5.18 ^ clkbuf_2_1_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_2_1_0_clk_regs (net)
+                  0.03    0.01    5.19 ^ clkbuf_3_2_0_clk_regs/A (CLKBUF_X3)
+     8   40.62    0.03    0.07    5.25 ^ clkbuf_3_2_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_3_2_0_clk_regs (net)
+                  0.03    0.00    5.25 ^ clkbuf_6_21_0_clk_regs/A (CLKBUF_X3)
+     2    7.37    0.01    0.04    5.30 ^ clkbuf_6_21_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_6_21_0_clk_regs (net)
+                  0.01    0.00    5.30 ^ clkbuf_7_42__f_clk_regs/A (CLKBUF_X3)
+     7   53.49    0.04    0.06    5.36 ^ clkbuf_7_42__f_clk_regs/Z (CLKBUF_X3)
+                                         clknet_7_42__leaf_clk_regs (net)
+                  0.04    0.01    5.37 ^ clkbuf_leaf_891_clk_regs/A (CLKBUF_X3)
+     6    9.99    0.01    0.05    5.42 ^ clkbuf_leaf_891_clk_regs/Z (CLKBUF_X3)
+                                         clknet_leaf_891_clk_regs (net)
+                  0.01    0.00    5.42 ^ u_pe_array.pe4.acc[30]$_SDFFE_PP0P_/CK (DFF_X1)
+                         -0.20    5.22   clock uncertainty
+                          0.00    5.22   clock reconvergence pessimism
+                         -0.04    5.18   library setup time
+                                  5.18   data required time
+-----------------------------------------------------------------------------
+                                  5.18   data required time
+                                 -2.50   data arrival time
+-----------------------------------------------------------------------------
+                                  2.68   slack (MET)
+
+
+Startpoint: fc2_score[6][14]$_SDFFCE_PN0P_
+            (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Endpoint: digit[0] (output port clocked by VIRTUAL_CLOCK)
+Path Group: VIRTUAL_CLOCK
+Path Type: max
+
+Fanout     Cap    Slew   Delay    Time   Description
+-----------------------------------------------------------------------------
+                          0.00    0.00   clock MAIN_CLOCK (rise edge)
+                          0.00    0.00   clock source latency
+     2   69.26    0.00    0.00    0.00 ^ clk (in)
+                                         clk (net)
+                  0.03    0.02    0.02 ^ clkbuf_regs_0_MAIN_CLOCK/A (CLKBUF_X3)
+     1    1.60    0.01    0.03    0.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+                                         clk_regs (net)
+                  0.01    0.00    0.06 ^ clkbuf_0_clk_regs/A (CLKBUF_X3)
+     4   46.89    0.04    0.06    0.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_0_clk_regs (net)
+                  0.04    0.00    0.12 ^ clkbuf_2_1_0_clk_regs/A (CLKBUF_X3)
+     2   30.01    0.02    0.06    0.18 ^ clkbuf_2_1_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_2_1_0_clk_regs (net)
+                  0.03    0.01    0.19 ^ clkbuf_3_2_0_clk_regs/A (CLKBUF_X3)
+     8   40.62    0.03    0.07    0.25 ^ clkbuf_3_2_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_3_2_0_clk_regs (net)
+                  0.03    0.00    0.26 ^ clkbuf_6_17_0_clk_regs/A (CLKBUF_X3)
+     2    7.12    0.01    0.04    0.30 ^ clkbuf_6_17_0_clk_regs/Z (CLKBUF_X3)
+                                         clknet_6_17_0_clk_regs (net)
+                  0.01    0.00    0.30 ^ clkbuf_7_35__f_clk_regs/A (CLKBUF_X3)
+     8   22.77    0.02    0.05    0.34 ^ clkbuf_7_35__f_clk_regs/Z (CLKBUF_X3)
+                                         clknet_7_35__leaf_clk_regs (net)
+                  0.02    0.00    0.34 ^ clkbuf_leaf_916_clk_regs/A (CLKBUF_X3)
+     7    9.53    0.01    0.04    0.38 ^ clkbuf_leaf_916_clk_regs/Z (CLKBUF_X3)
+                                         clknet_leaf_916_clk_regs (net)
+                  0.01    0.00    0.38 ^ fc2_score[6][14]$_SDFFCE_PN0P_/CK (DFF_X1)
+     3    7.95    0.02    0.10    0.49 ^ fc2_score[6][14]$_SDFFCE_PN0P_/Q (DFF_X1)
+                                         fc2_score[6][14] (net)
+                  0.02    0.00    0.49 ^ _56633_/A (HA_X1)
+     2    4.17    0.03    0.06    0.55 ^ _56633_/S (HA_X1)
+                                         _01636_ (net)
+                  0.03    0.00    0.55 ^ _32916_/A2 (NAND4_X1)
+     2    6.51    0.03    0.05    0.60 v _32916_/ZN (NAND4_X1)
+                                         _09039_ (net)
+                  0.03    0.00    0.60 v _32918_/A1 (OR2_X1)
+     2    4.25    0.01    0.06    0.67 v _32918_/ZN (OR2_X1)
+                                         _09041_ (net)
+                  0.01    0.00    0.67 v _32921_/A1 (NOR3_X1)
+     1   11.40    0.09    0.11    0.78 ^ _32921_/ZN (NOR3_X1)
+                                         _09044_ (net)
+                  0.09    0.00    0.78 ^ _32931_/B1 (AOI221_X1)
+     1    2.02    0.03    0.04    0.82 v _32931_/ZN (AOI221_X1)
+                                         _09054_ (net)
+                  0.03    0.00    0.82 v _32948_/A (OAI21_X1)
+     1    1.97    0.02    0.03    0.85 ^ _32948_/ZN (OAI21_X1)
+                                         _09071_ (net)
+                  0.02    0.00    0.85 ^ _32974_/B (MUX2_X1)
+    18   44.40    0.10    0.14    0.99 ^ _32974_/Z (MUX2_X1)
+                                         _09097_ (net)
+                  0.10    0.00    0.99 ^ place2380/A (BUF_X1)
+    16   44.00    0.10    0.13    1.12 ^ place2380/Z (BUF_X1)
+                                         net2379 (net)
+                  0.10    0.00    1.13 ^ _34033_/S (MUX2_X1)
+     3    7.95    0.02    0.07    1.19 ^ _34033_/Z (MUX2_X1)
+                                         _01107_ (net)
+                  0.02    0.00    1.19 ^ _56204_/A (HA_X1)
+     2    4.07    0.03    0.06    1.26 ^ _56204_/S (HA_X1)
+                                         _01109_ (net)
+                  0.03    0.00    1.26 ^ _33065_/A2 (NAND4_X1)
+     2    9.09    0.04    0.06    1.32 v _33065_/ZN (NAND4_X1)
+                                         _09183_ (net)
+                  0.04    0.00    1.32 v _33068_/A1 (NOR3_X1)
+     2   10.78    0.09    0.12    1.44 ^ _33068_/ZN (NOR3_X1)
+                                         _09186_ (net)
+                  0.09    0.00    1.44 ^ _33100_/A (OAI21_X1)
+     1    2.93    0.02    0.03    1.47 v _33100_/ZN (OAI21_X1)
+                                         _09218_ (net)
+                  0.02    0.00    1.47 v _33101_/A3 (AND3_X1)
+     1    1.66    0.01    0.04    1.51 v _33101_/ZN (AND3_X1)
+                                         _09219_ (net)
+                  0.01    0.00    1.51 v _33115_/B1 (AOI21_X1)
+     2    5.03    0.04    0.04    1.55 ^ _33115_/ZN (AOI21_X1)
+                                         _09233_ (net)
+                  0.04    0.00    1.56 ^ _33116_/S (MUX2_X1)
+    16   43.47    0.10    0.14    1.70 ^ _33116_/Z (MUX2_X1)
+                                         _09234_ (net)
+                  0.10    0.00    1.70 ^ _33273_/S (MUX2_X1)
+     1    4.31    0.02    0.06    1.76 ^ _33273_/Z (MUX2_X1)
+                                         _01767_ (net)
+                  0.02    0.00    1.76 ^ _56707_/A (HA_X1)
+     4   12.09    0.07    0.10    1.86 ^ _56707_/S (HA_X1)
+                                         _01769_ (net)
+                  0.07    0.00    1.86 ^ _40954_/A2 (NAND4_X1)
+     3    5.48    0.03    0.06    1.92 v _40954_/ZN (NAND4_X1)
+                                         _16371_ (net)
+                  0.03    0.00    1.92 v _40981_/A1 (NOR3_X1)
+     3    8.44    0.07    0.10    2.01 ^ _40981_/ZN (NOR3_X1)
+                                         _16398_ (net)
+                  0.07    0.00    2.01 ^ _40983_/A2 (NAND3_X1)
+     2    4.24    0.02    0.04    2.06 v _40983_/ZN (NAND3_X1)
+                                         _16400_ (net)
+                  0.02    0.00    2.06 v _40986_/A1 (OR3_X1)
+     2    4.56    0.02    0.08    2.14 v _40986_/ZN (OR3_X1)
+                                         _16403_ (net)
+                  0.02    0.00    2.14 v _40987_/A (INV_X1)
+     2    4.29    0.01    0.02    2.16 ^ _40987_/ZN (INV_X1)
+                                         _16404_ (net)
+                  0.01    0.00    2.16 ^ _41002_/C1 (AOI221_X1)
+     3    4.51    0.03    0.02    2.18 v _41002_/ZN (AOI221_X1)
+                                         _16419_ (net)
+                  0.03    0.00    2.18 v _41041_/A1 (NAND3_X1)
+     3    5.76    0.02    0.03    2.21 ^ _41041_/ZN (NAND3_X1)
+                                         _16458_ (net)
+                  0.02    0.00    2.21 ^ _41042_/A2 (NAND2_X1)
+     3    6.86    0.02    0.03    2.24 v _41042_/ZN (NAND2_X1)
+                                         _16459_ (net)
+                  0.02    0.00    2.24 v _41043_/A2 (NAND2_X1)
+    18   39.35    0.09    0.11    2.35 ^ _41043_/ZN (NAND2_X1)
+                                         _16460_ (net)
+                  0.09    0.00    2.35 ^ place2372/A (BUF_X1)
+    15   36.21    0.08    0.11    2.47 ^ place2372/Z (BUF_X1)
+                                         net2371 (net)
+                  0.08    0.01    2.47 ^ _41157_/B1 (OAI221_X1)
+     1    4.29    0.03    0.05    2.52 v _41157_/ZN (OAI221_X1)
+                                         u_argmax.max3[33] (net)
+                  0.03    0.00    2.52 v _56029_/A (HA_X1)
+     2    3.35    0.02    0.06    2.58 v _56029_/S (HA_X1)
+                                         _00810_ (net)
+                  0.02    0.00    2.58 v _41199_/A (INV_X1)
+     1    2.43    0.01    0.02    2.60 ^ _41199_/ZN (INV_X1)
+                                         _16547_ (net)
+                  0.01    0.00    2.60 ^ _41200_/B1 (OAI21_X1)
+     1    1.71    0.01    0.01    2.62 v _41200_/ZN (OAI21_X1)
+                                         _16548_ (net)
+                  0.01    0.00    2.62 v _41201_/B2 (AOI21_X1)
+     1    2.45    0.02    0.03    2.65 ^ _41201_/ZN (AOI21_X1)
+                                         _16549_ (net)
+                  0.02    0.00    2.65 ^ _41202_/B2 (OAI21_X1)
+     1    2.66    0.01    0.02    2.67 v _41202_/ZN (OAI21_X1)
+                                         _16550_ (net)
+                  0.01    0.00    2.67 v _41207_/B2 (AOI221_X1)
+     1    4.77    0.06    0.10    2.78 ^ _41207_/ZN (AOI221_X1)
+                                         _16555_ (net)
+                  0.06    0.00    2.78 ^ _41213_/B1 (OAI221_X1)
+     1    6.63    0.03    0.05    2.83 v _41213_/ZN (OAI221_X1)
+                                         _16561_ (net)
+                  0.03    0.00    2.83 v _41226_/B2 (AOI221_X1)
+     1    2.36    0.05    0.09    2.92 ^ _41226_/ZN (AOI221_X1)
+                                         _16574_ (net)
+                  0.05    0.00    2.92 ^ _41227_/S (MUX2_X1)
+     5   11.36    0.03    0.07    2.99 ^ _41227_/Z (MUX2_X1)
+                                         net549 (net)
+                  0.03    0.00    2.99 ^ _41228_/A2 (NOR2_X1)
+     2    3.35    0.01    0.02    3.01 v _41228_/ZN (NOR2_X1)
+                                         net548 (net)
+                  0.01    0.00    3.01 v _41234_/B2 (AOI221_X1)
+     1    1.09    0.04    0.07    3.08 ^ _41234_/ZN (AOI221_X1)
+                                         net546 (net)
+                  0.04    0.00    3.08 ^ place2370/A (BUF_X1)
+     1   22.44    0.05    0.08    3.16 ^ place2370/Z (BUF_X1)
+                                         net2369 (net)
+                  0.05    0.00    3.16 ^ output547/A (BUF_X1)
+     1   12.92    0.03    0.06    3.22 ^ output547/Z (BUF_X1)
+                                         digit[0] (net)
+                  0.03    0.00    3.22 ^ digit[0] (out)
+                                  3.22   data arrival time
+
+                  0.00    5.00    5.00   clock VIRTUAL_CLOCK (rise edge)
+                          0.00    5.00   clock network delay (ideal)
+                         -0.20    4.80   clock uncertainty
+                          0.00    4.80   clock reconvergence pessimism
+                         -1.00    3.80   output external delay
+                                  3.80   data required time
+-----------------------------------------------------------------------------
+                                  3.80   data required time
+                                 -3.22   data arrival time
+-----------------------------------------------------------------------------
+                                  0.58   slack (MET)
+
+
+
+==========================================================================
+global route report_check_types -max_slew -max_cap -max_fanout -violators
+--------------------------------------------------------------------------
+
+==========================================================================
+global route max_slew_check_slack
+--------------------------------------------------------------------------
+0.07238093763589859
+
+==========================================================================
+global route max_slew_check_limit
+--------------------------------------------------------------------------
+0.1985349953174591
+
+==========================================================================
+global route max_slew_check_slack_limit
+--------------------------------------------------------------------------
+0.3646
+
+==========================================================================
+global route max_fanout_check_slack
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_fanout_check_limit
+--------------------------------------------------------------------------
+1.0000000150474662e+30
+
+==========================================================================
+global route max_capacitance_check_slack
+--------------------------------------------------------------------------
+2.16412091255188
+
+==========================================================================
+global route max_capacitance_check_limit
+--------------------------------------------------------------------------
+10.47130012512207
+
+==========================================================================
+global route max_capacitance_check_slack_limit
+--------------------------------------------------------------------------
+0.2067
+
+==========================================================================
+global route max_slew_violation_count
+--------------------------------------------------------------------------
+max slew violation count 0
+
+==========================================================================
+global route max_fanout_violation_count
+--------------------------------------------------------------------------
+max fanout violation count 0
+
+==========================================================================
+global route max_cap_violation_count
+--------------------------------------------------------------------------
+max cap violation count 0
+
+==========================================================================
+global route setup_violation_count
+--------------------------------------------------------------------------
+setup violation count 0
+
+==========================================================================
+global route hold_violation_count
+--------------------------------------------------------------------------
+hold violation count 0
+
+==========================================================================
+global route report_checks -path_delay max reg to reg
+--------------------------------------------------------------------------
+Startpoint: u_weight_memory.bank_sel_d[0]$_DFF_P_
+            (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Endpoint: u_pe_array.pe4.acc[30]$_SDFFE_PP0P_
+          (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Path Group: MAIN_CLOCK
+Path Type: max
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock MAIN_CLOCK (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ clk (in)
+   0.05    0.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+   0.06    0.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+   0.06    0.18 ^ clkbuf_2_1_0_clk_regs/Z (CLKBUF_X3)
+   0.07    0.25 ^ clkbuf_3_3_0_clk_regs/Z (CLKBUF_X3)
+   0.04    0.30 ^ clkbuf_6_30_0_clk_regs/Z (CLKBUF_X3)
+   0.05    0.34 ^ clkbuf_7_61__f_clk_regs/Z (CLKBUF_X3)
+   0.04    0.38 ^ clkbuf_leaf_813_clk_regs/Z (CLKBUF_X3)
+   0.00    0.38 ^ u_weight_memory.bank_sel_d[0]$_DFF_P_/CK (DFF_X1)
+   0.10    0.48 v u_weight_memory.bank_sel_d[0]$_DFF_P_/Q (DFF_X1)
+   0.12    0.61 ^ _33339_/ZN (NOR3_X2)
+   0.09    0.70 ^ place2814/Z (BUF_X2)
+   0.13    0.83 ^ place2813/Z (BUF_X2)
+   0.04    0.88 v _34189_/ZN (AOI222_X1)
+   0.07    0.95 ^ _34192_/ZN (NAND3_X1)
+   0.15    1.10 ^ _34193_/ZN (AND2_X1)
+   0.11    1.21 ^ place2459/Z (BUF_X2)
+   0.11    1.33 v _55170_/S (FA_X1)
+   0.12    1.44 ^ _55216_/S (FA_X1)
+   0.10    1.54 v _55248_/S (FA_X1)
+   0.16    1.70 ^ _55268_/S (FA_X1)
+   0.10    1.80 ^ _56309_/S (HA_X1)
+   0.09    1.89 ^ _56051_/S (HA_X1)
+   0.10    1.99 ^ _42862_/ZN (AND2_X1)
+   0.02    2.01 v _42863_/ZN (NAND2_X1)
+   0.12    2.13 v _42864_/ZN (OR3_X1)
+   0.08    2.21 ^ _42873_/ZN (AOI22_X1)
+   0.03    2.24 v _42874_/ZN (AOI221_X2)
+   0.13    2.37 ^ _42875_/ZN (AOI21_X1)
+   0.05    2.42 v _42880_/ZN (AOI221_X1)
+   0.07    2.49 ^ _42881_/Z (MUX2_X1)
+   0.01    2.50 v _42883_/ZN (NAND2_X1)
+   0.00    2.50 v u_pe_array.pe4.acc[30]$_SDFFE_PP0P_/D (DFF_X1)
+           2.50   data arrival time
+
+   5.00    5.00   clock MAIN_CLOCK (rise edge)
+   0.00    5.00   clock source latency
+   0.00    5.00 ^ clk (in)
+   0.05    5.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+   0.06    5.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+   0.06    5.18 ^ clkbuf_2_1_0_clk_regs/Z (CLKBUF_X3)
+   0.07    5.25 ^ clkbuf_3_2_0_clk_regs/Z (CLKBUF_X3)
+   0.04    5.30 ^ clkbuf_6_21_0_clk_regs/Z (CLKBUF_X3)
+   0.06    5.36 ^ clkbuf_7_42__f_clk_regs/Z (CLKBUF_X3)
+   0.06    5.42 ^ clkbuf_leaf_891_clk_regs/Z (CLKBUF_X3)
+   0.00    5.42 ^ u_pe_array.pe4.acc[30]$_SDFFE_PP0P_/CK (DFF_X1)
+  -0.20    5.22   clock uncertainty
+   0.00    5.22   clock reconvergence pessimism
+  -0.04    5.18   library setup time
+           5.18   data required time
+---------------------------------------------------------
+           5.18   data required time
+          -2.50   data arrival time
+---------------------------------------------------------
+           2.68   slack (MET)
+
+
+
+==========================================================================
+global route report_checks -path_delay min reg to reg
+--------------------------------------------------------------------------
+Startpoint: u_controller.weight_addr[0]$_SDFFE_PN0P_
+            (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Endpoint: u_controller.weight_addr[0]$_SDFFE_PN0P_
+          (rising edge-triggered flip-flop clocked by MAIN_CLOCK)
+Path Group: MAIN_CLOCK
+Path Type: min
+
+  Delay    Time   Description
+---------------------------------------------------------
+   0.00    0.00   clock MAIN_CLOCK (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ clk (in)
+   0.05    0.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+   0.06    0.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+   0.05    0.17 ^ clkbuf_2_3_0_clk_regs/Z (CLKBUF_X3)
+   0.07    0.24 ^ clkbuf_3_6_0_clk_regs/Z (CLKBUF_X3)
+   0.05    0.29 ^ clkbuf_6_54_0_clk_regs/Z (CLKBUF_X3)
+   0.05    0.33 ^ clkbuf_7_109__f_clk_regs/Z (CLKBUF_X3)
+   0.04    0.37 ^ clkbuf_leaf_578_clk_regs/Z (CLKBUF_X3)
+   0.00    0.37 ^ u_controller.weight_addr[0]$_SDFFE_PN0P_/CK (DFF_X1)
+   0.07    0.44 ^ u_controller.weight_addr[0]$_SDFFE_PN0P_/QN (DFF_X1)
+   0.02    0.46 v _42465_/ZN (AOI22_X1)
+   0.03    0.49 ^ _42466_/ZN (NOR2_X1)
+   0.00    0.49 ^ u_controller.weight_addr[0]$_SDFFE_PN0P_/D (DFF_X1)
+           0.49   data arrival time
+
+   0.00    0.00   clock MAIN_CLOCK (rise edge)
+   0.00    0.00   clock source latency
+   0.00    0.00 ^ clk (in)
+   0.05    0.05 ^ clkbuf_regs_0_MAIN_CLOCK/Z (CLKBUF_X3)
+   0.06    0.12 ^ clkbuf_0_clk_regs/Z (CLKBUF_X3)
+   0.05    0.17 ^ clkbuf_2_3_0_clk_regs/Z (CLKBUF_X3)
+   0.07    0.24 ^ clkbuf_3_6_0_clk_regs/Z (CLKBUF_X3)
+   0.05    0.29 ^ clkbuf_6_54_0_clk_regs/Z (CLKBUF_X3)
+   0.05    0.33 ^ clkbuf_7_109__f_clk_regs/Z (CLKBUF_X3)
+   0.04    0.37 ^ clkbuf_leaf_578_clk_regs/Z (CLKBUF_X3)
+   0.00    0.37 ^ u_controller.weight_addr[0]$_SDFFE_PN0P_/CK (DFF_X1)
+   0.10    0.47   clock uncertainty
+   0.00    0.47   clock reconvergence pessimism
+   0.01    0.49   library hold time
+           0.49   data required time
+---------------------------------------------------------
+           0.49   data required time
+          -0.49   data arrival time
+---------------------------------------------------------
+           0.00   slack (MET)
+
+
+
+==========================================================================
+global route critical path target clock latency max path
+--------------------------------------------------------------------------
+0.3883
+
+==========================================================================
+global route critical path target clock latency min path
+--------------------------------------------------------------------------
+0.3725
+
+==========================================================================
+global route critical path source clock latency min path
+--------------------------------------------------------------------------
+0.0000
+
+==========================================================================
+global route critical path delay
+--------------------------------------------------------------------------
+3.2233
+
+==========================================================================
+global route critical path slack
+--------------------------------------------------------------------------
+0.5767
+
+==========================================================================
+global route slack div critical path delay
+--------------------------------------------------------------------------
+17.891602
+
+==========================================================================
+global route report_power
+--------------------------------------------------------------------------
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             1.01e-02   6.50e-05   5.47e-04   1.07e-02  26.4%
+Combinational          3.73e-04   7.25e-04   7.57e-04   1.85e-03   4.6%
+Clock                  3.23e-03   4.04e-03   5.19e-05   7.32e-03  18.1%
+Macro                  1.49e-02   0.00e+00   5.76e-03   2.06e-02  51.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  2.85e-02   4.83e-03   7.12e-03   4.05e-02 100.0%
+                          70.5%      11.9%      17.6%

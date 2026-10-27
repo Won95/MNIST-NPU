@@ -1,0 +1,19 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro5/2_2_floorplan_macro.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro5/2_1_floorplan.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+[INFO ODB-0303] The initial 442 rows (1204008 sites) were cut with 7 shapes for a total of 1036 rows (713958 sites).
+[INFO TAP-0004] Inserted 884 endcaps.
+[INFO TAP-0005] Inserted 310 tapcells.
+Design area 193797 um^2 61% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro5/2_3_floorplan_tapcell.odb
+Elapsed time: 0:00.40[h:]min:sec. CPU time: user 0.29 sys 0.12 (101%). Peak memory: 132608KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+2_3_floorplan_tapcell  .odb          0        0     1.02      129 446d600ae6

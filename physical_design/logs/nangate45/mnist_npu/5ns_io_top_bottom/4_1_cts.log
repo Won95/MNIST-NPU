@@ -1,0 +1,890 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_io_top_bottom/3_place.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_io_top_bottom/3_place.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[INFO CTS-0007] Net "clk" found for clock "MAIN_CLOCK".
+[INFO CTS-0011]  Clock net "clk" for macros has 7 sinks.
+[INFO CTS-0011]  Clock net "clk_regs" for registers has 7170 sinks.
+[INFO CTS-0008] TritonCTS found 2 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 7 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 7.
+[INFO CTS-0029]  Macro  sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 305.1 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0023]  Original sink region: [(385210, 280420), (690190, 1211140)].
+[INFO CTS-0024]  Normalized sink region: [(27.515, 20.03), (49.2993, 86.51)].
+[INFO CTS-0025]     Width:  21.7843.
+[INFO CTS-0026]     Height: 66.4800.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 4
+    Sub-region size: 21.7843 X 33.2400
+[INFO CTS-0034]     Segment length (rounded): 16.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 7.
+[INFO CTS-0201] 7 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_regs.
+[INFO CTS-0028]  Total number of sinks: 7170.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 9 and max clustering diameter of 111.
+[INFO CTS-0019]  Total number of sinks after clustering: 1083.
+[INFO CTS-0024]  Normalized sink region: [(1.91357, 2.13333), (74.9123, 89.5041)].
+[INFO CTS-0025]     Width:  72.9988.
+[INFO CTS-0026]     Height: 87.3707.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 542
+    Sub-region size: 72.9988 X 43.6854
+[INFO CTS-0034]     Segment length (rounded): 22.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 271
+    Sub-region size: 36.4994 X 43.6854
+[INFO CTS-0034]     Segment length (rounded): 18.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 136
+    Sub-region size: 36.4994 X 21.8427
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 68
+    Sub-region size: 18.2497 X 21.8427
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 5
+    Direction: Vertical
+    Sinks per sub-region: 34
+    Sub-region size: 18.2497 X 10.9213
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 6
+    Direction: Horizontal
+    Sinks per sub-region: 17
+    Sub-region size: 9.1248 X 10.9213
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 7
+    Direction: Vertical
+    Sinks per sub-region: 9
+    Sub-region size: 9.1248 X 5.4607
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 1083.
+[INFO CTS-0018]     Created 3 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 3 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:1, 4:1..
+[INFO CTS-0017]     Max level of the clock tree: 1.
+[INFO CTS-0018]     Created 1288 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 6.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 6.
+[INFO CTS-0015]     Created 1288 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:5, 3:16, 4:31, 5:72, 6:275, 7:602, 8:151, 9:16, 10:17, 11:4, 12:10, 13:9, 14:1, 15:2..
+[INFO CTS-0017]     Max level of the clock tree: 7.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 7
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 806.41 um
+[INFO CTS-0102]  Path depth 2 - 2
+[INFO CTS-0207]  Dummy loads inserted 1
+[INFO CTS-0098] Clock net "clk_regs"
+[INFO CTS-0099]  Sinks 7992
+[INFO CTS-0100]  Leaf buffers 1083
+[INFO CTS-0101]  Average sink wire length 441.40 um
+[INFO CTS-0102]  Path depth 5 - 6
+[INFO CTS-0207]  Dummy loads inserted 822
+[INFO CTS-0033] Balancing latency for clock MAIN_CLOCK
+[INFO CTS-0036]  inserted 3 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 3
+[INFO CTS-0500] Runtime: 2.13s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 320266.13 um^2
+[INFO DPL-0007] Movable instances area: 73759.14 um^2
+[INFO DPL-0008] Fixed instances area within core: 121774.00 um^2
+[INFO DPL-0009] Utilization: 61.1%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 35114 cells
+[INFO DPL-0393]   height 81 row(s): 7 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       1362 |       390 |       972
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.39s
+Detailed Placement Analysis
+---------------------------------
+legalizer            negotiation
+total moves               22647
+total displacement      19223.4 u
+average displacement        0.5 u
+max displacement            6.7 u
+original HPWL          730710.0 u
+legalized HPWL         740195.6 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 1.19s
+[INFO RSZ-0046] Found 6691 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -0.446 | -1081.940 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[23]
+       10 |       9 |      18 |            0 |    +0.0% |  -0.446 | -1077.910 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[12]
+       20 |      19 |      38 |            0 |    +0.0% |  -0.443 | -1072.823 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[43]
+       30 |      29 |      58 |            0 |    +0.0% |  -0.442 | -1067.268 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[34]
+       40 |      39 |      78 |            0 |    +0.0% |  -0.440 | -1061.565 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[24]
+       50 |      49 |     110 |            0 |    +0.1% |  -0.436 | -1054.460 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[48]
+       60 |      59 |     150 |            0 |    +0.1% |  -0.436 | -1046.444 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[48]
+       70 |      69 |     190 |            0 |    +0.1% |  -0.436 | -1038.297 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[48]
+       80 |      79 |     226 |            0 |    +0.1% |  -0.424 | -1030.587 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[63]
+       90 |      89 |     266 |            0 |    +0.1% |  -0.424 | -1022.701 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[63]
+      100 |      99 |     290 |            0 |    +0.1% |  -0.422 | -1016.559 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[55]
+      110 |     109 |     324 |            0 |    +0.2% |  -0.422 | -1009.281 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[52]
+      120 |     119 |     356 |            0 |    +0.2% |  -0.420 | -1002.238 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[8]
+      130 |     129 |     392 |            0 |    +0.2% |  -0.381 | -994.835 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      140 |     139 |     472 |            0 |    +0.2% |  -0.381 | -983.054 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      150 |     149 |     552 |            0 |    +0.3% |  -0.381 | -971.339 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      160 |     159 |     632 |            0 |    +0.3% |  -0.381 | -959.465 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      170 |     169 |     712 |            0 |    +0.3% |  -0.381 | -947.633 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      180 |     179 |     792 |            0 |    +0.4% |  -0.381 | -935.929 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      190 |     189 |     872 |            0 |    +0.4% |  -0.381 | -924.439 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      200 |     189 |     872 |            0 |    +0.4% |  -0.381 | -924.439 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      210 |     189 |     880 |            0 |    +0.4% |  -0.381 | -923.317 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      220 |     191 |     935 |            0 |    +0.4% |  -0.352 | -856.412 | u_input_buffer.memory[129][1]$_DFFE_PP_/D
+      230 |     195 |     988 |            0 |    +0.5% |  -0.346 | -778.813 | u_weight_memory.GEN_SRAM[4].u_sram/addr_in[2]
+      240 |     201 |    1038 |            0 |    +0.5% |  -0.343 | -685.372 | u_weight_memory.GEN_SRAM[4].u_sram/addr_in[3]
+      250 |     207 |    1079 |            0 |    +0.5% |  -0.337 | -600.967 | u_input_buffer.memory[456][0]$_DFFE_PP_/D
+      260 |     207 |    1108 |            0 |    +0.5% |  -0.328 | -508.209 | u_input_buffer.memory[780][2]$_DFFE_PP_/D
+      270 |     207 |    1135 |            0 |    +0.5% |  -0.328 | -388.578 | u_input_buffer.memory[780][2]$_DFFE_PP_/D
+      280 |     207 |    1141 |            0 |    +0.5% |  -0.328 | -388.550 | u_input_buffer.memory[780][2]$_DFFE_PP_/D
+      290 |     208 |    1151 |            0 |    +0.5% |  -0.328 | -387.545 | u_input_buffer.memory[780][2]$_DFFE_PP_/D
+      300 |     210 |    1163 |            0 |    +0.5% |  -0.328 | -385.349 | u_input_buffer.memory[780][2]$_DFFE_PP_/D
+      310 |     215 |    1205 |            0 |    +0.6% |  -0.324 | -332.180 | u_input_buffer.memory[132][5]$_DFFE_PP_/D
+      320 |     217 |    1233 |            0 |    +0.6% |  -0.323 | -290.711 | u_input_buffer.memory[512][7]$_DFFE_PP_/D
+      330 |     218 |    1238 |            0 |    +0.6% |  -0.331 | -278.755 | u_input_buffer.memory[514][7]$_DFFE_PP_/D
+      340 |     219 |    1252 |            0 |    +0.6% |  -0.318 | -226.821 | u_input_buffer.memory[129][4]$_DFFE_PP_/D
+      350 |     219 |    1260 |            0 |    +0.6% |  -0.317 | -163.404 | u_input_buffer.memory[146][5]$_DFFE_PP_/D
+      360 |     220 |    1291 |            0 |    +0.6% |  -0.251 | -17.417 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      370 |     220 |    1291 |            0 |    +0.6% |  -0.251 | -17.417 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      380 |     220 |    1298 |            0 |    +0.6% |  -0.251 | -16.618 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      390 |     220 |    1298 |            0 |    +0.6% |  -0.251 | -16.618 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      400 |     220 |    1301 |            0 |    +0.6% |  -0.251 | -16.441 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      410 |     220 |    1319 |            0 |    +0.6% |  -0.246 |  -6.295 | u_weight_memory.GEN_SRAM[3].u_sram/we_in
+      420 |     220 |    1319 |            0 |    +0.6% |  -0.246 |  -6.295 | u_weight_memory.GEN_SRAM[3].u_sram/we_in
+      430 |     220 |    1331 |            0 |    +0.6% |  -0.246 |  -5.806 | u_weight_memory.GEN_SRAM[3].u_sram/we_in
+      440 |     220 |    1339 |            0 |    +0.6% |  -0.246 |  -5.498 | u_weight_memory.GEN_SRAM[3].u_sram/we_in
+      450 |     220 |    1349 |            0 |    +0.6% |  -0.216 |  -3.953 | u_controller.state[0]$_DFF_P_/D
+      460 |     220 |    1350 |            0 |    +0.6% |  -0.216 |  -3.524 | u_controller.state[0]$_DFF_P_/D
+      470 |     220 |    1350 |            0 |    +0.6% |  -0.216 |  -3.524 | u_controller.state[0]$_DFF_P_/D
+      480 |     220 |    1350 |            0 |    +0.6% |  -0.216 |  -3.524 | u_controller.state[0]$_DFF_P_/D
+      490 |     220 |    1364 |            0 |    +0.6% |  -0.216 |  -3.281 | u_controller.state[0]$_DFF_P_/D
+      500 |     220 |    1364 |            0 |    +0.6% |  -0.216 |  -3.281 | u_controller.state[0]$_DFF_P_/D
+      510 |     220 |    1364 |            0 |    +0.6% |  -0.216 |  -3.281 | u_controller.state[0]$_DFF_P_/D
+      520 |     220 |    1364 |            0 |    +0.6% |  -0.216 |  -3.281 | u_controller.state[0]$_DFF_P_/D
+      530 |     220 |    1364 |            0 |    +0.6% |  -0.216 |  -3.281 | u_controller.state[0]$_DFF_P_/D
+      540 |     220 |    1364 |            0 |    +0.6% |  -0.216 |  -3.281 | u_controller.state[0]$_DFF_P_/D
+      550 |     220 |    1364 |            0 |    +0.6% |  -0.216 |  -3.281 | u_controller.state[0]$_DFF_P_/D
+      560 |     220 |    1364 |            0 |    +0.6% |  -0.216 |  -3.281 | u_controller.state[0]$_DFF_P_/D
+      570 |     220 |    1364 |            0 |    +0.6% |  -0.216 |  -3.281 | u_controller.state[0]$_DFF_P_/D
+      580 |     220 |    1370 |            0 |    +0.6% |  -0.141 |  -1.994 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      590 |     220 |    1370 |            0 |    +0.6% |  -0.141 |  -1.994 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      600 |     220 |    1370 |            0 |    +0.6% |  -0.141 |  -1.994 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      610 |     220 |    1370 |            0 |    +0.6% |  -0.141 |  -1.994 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      620 |     220 |    1370 |            0 |    +0.6% |  -0.141 |  -1.994 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      630 |     220 |    1370 |            0 |    +0.6% |  -0.141 |  -1.994 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      640 |     220 |    1370 |            0 |    +0.6% |  -0.141 |  -1.994 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      650 |     220 |    1370 |            0 |    +0.6% |  -0.141 |  -1.994 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      660 |     220 |    1376 |            0 |    +0.6% |  -0.137 |  -1.675 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      670 |     220 |    1382 |            0 |    +0.6% |  -0.109 |  -0.997 | u_controller.state[0]$_DFF_P_/D
+      680 |     220 |    1382 |            0 |    +0.6% |  -0.109 |  -0.997 | u_controller.state[0]$_DFF_P_/D
+      690 |     220 |    1382 |            0 |    +0.6% |  -0.109 |  -0.997 | u_controller.state[0]$_DFF_P_/D
+      700 |     220 |    1382 |            0 |    +0.6% |  -0.109 |  -0.997 | u_controller.state[0]$_DFF_P_/D
+      710 |     220 |    1382 |            0 |    +0.6% |  -0.109 |  -0.997 | u_controller.state[0]$_DFF_P_/D
+      720 |     220 |    1383 |            0 |    +0.6% |  -0.109 |  -0.994 | u_controller.state[0]$_DFF_P_/D
+      730 |     220 |    1383 |            0 |    +0.6% |  -0.109 |  -0.994 | u_controller.state[0]$_DFF_P_/D
+      740 |     220 |    1383 |            0 |    +0.6% |  -0.109 |  -0.994 | u_controller.state[0]$_DFF_P_/D
+      750 |     220 |    1383 |            0 |    +0.6% |  -0.109 |  -0.994 | u_controller.state[0]$_DFF_P_/D
+      760 |     220 |    1383 |            0 |    +0.6% |  -0.109 |  -0.994 | u_controller.state[0]$_DFF_P_/D
+      770 |     220 |    1383 |            0 |    +0.6% |  -0.109 |  -0.994 | u_controller.state[0]$_DFF_P_/D
+      780 |     220 |    1385 |            0 |    +0.6% |  -0.109 |  -0.940 | u_controller.state[0]$_DFF_P_/D
+      790 |     220 |    1385 |            0 |    +0.6% |  -0.109 |  -0.940 | u_controller.state[0]$_DFF_P_/D
+      800 |     220 |    1385 |            0 |    +0.6% |  -0.109 |  -0.940 | u_controller.state[0]$_DFF_P_/D
+      810 |     220 |    1385 |            0 |    +0.6% |  -0.109 |  -0.940 | u_controller.state[0]$_DFF_P_/D
+      820 |     220 |    1387 |            0 |    +0.6% |  -0.109 |  -0.732 | u_controller.state[0]$_DFF_P_/D
+      830 |     220 |    1387 |            0 |    +0.6% |  -0.109 |  -0.732 | u_controller.state[0]$_DFF_P_/D
+      840 |     220 |    1387 |            0 |    +0.6% |  -0.109 |  -0.732 | u_controller.state[0]$_DFF_P_/D
+      850 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      860 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      870 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      880 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      890 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      900 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      910 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      920 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      930 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      940 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      950 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      960 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      970 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      980 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+      990 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+     1000 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+     1010 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+     1020 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+     1030 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+     1040 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+     1050 |     220 |    1388 |            0 |    +0.6% |  -0.109 |  -0.532 | u_controller.state[0]$_DFF_P_/D
+     1060 |     220 |    1389 |            0 |    +0.6% |  -0.109 |  -0.519 | u_controller.state[0]$_DFF_P_/D
+     1070 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1080 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1090 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1100 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1110 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1120 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1130 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1140 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1150 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1160 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1170 |     220 |    1394 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1180 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1190 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1200 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1210 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1220 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1230 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1240 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1250 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1260 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1270 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1280 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1290 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1300 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1310 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1320 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1330 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1340 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1350 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1360 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1370 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1380 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1390 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1400 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1410 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1420 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1430 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1440 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1450 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1460 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1470 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1480 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1490 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1500 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1510 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1520 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1530 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1540 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1550 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1560 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1570 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1580 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1590 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1600 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1610 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1620 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1630 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1640 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1650 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1660 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1670 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1680 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1690 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1700 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1710 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1720 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1730 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1740 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1750 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1760 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1770 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1780 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1790 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1800 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1810 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1820 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1830 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1840 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1850 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1860 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1870 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1880 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1890 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1900 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1910 |     220 |    1395 |            0 |    +0.6% |  -0.019 |  -0.233 | u_input_buffer.memory[332][5]$_DFFE_PP_/D
+     1920 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     1930 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     1940 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     1950 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     1960 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     1970 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     1980 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     1990 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2000 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2010 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2020 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2030 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2040 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2050 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2060 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2070 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2080 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2090 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2100 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2110 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2120 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2130 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2140 |     220 |    1397 |            0 |    +0.6% |  -0.003 |  -0.023 | u_input_buffer.memory[317][2]$_DFFE_PP_/D
+     2150 |     220 |    1398 |            0 |    +0.6% |  -0.001 |  -0.001 | u_controller.input_count[0]$_SDFFE_PN0P_/D
+     2160 |     220 |    1398 |            0 |    +0.6% |  -0.001 |  -0.001 | u_controller.input_count[0]$_SDFFE_PN0P_/D
+     2170 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2180 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2190 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2200 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2210 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2220 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2230 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2240 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2250 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2260 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2270 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2280 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2290 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2300 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2310 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2320 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2330 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2340 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2350 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2360 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2370 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2380 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2390 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2400 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2410 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2420 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2430 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2440 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2450 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2460 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2470 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2480 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2490 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2500 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2510 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2520 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2530 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2540 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2550 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2560 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2570 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2580 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2590 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2600 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2610 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2620 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2630 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2640 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2650 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2660 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2670 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2680 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2690 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2700 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2710 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2720 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2730 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2740 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2750 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2760 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2770 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2780 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2790 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2800 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2810 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2820 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2830 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2840 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2850 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2860 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2870 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2880 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2890 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2900 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2910 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2920 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2930 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2940 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2950 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2960 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2970 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2980 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     2990 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3000 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3010 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3020 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3030 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3040 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3050 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3060 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3070 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3080 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3090 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3100 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3110 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3120 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3130 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3140 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3150 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3160 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3170 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3180 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3190 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3200 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3210 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3220 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3230 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3240 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3250 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3260 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3270 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3280 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3290 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3300 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3310 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3320 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3330 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3340 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3350 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3360 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3370 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3380 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3390 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3400 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3410 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3420 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3430 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3440 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3450 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3460 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3470 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3480 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3490 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3500 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3510 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3520 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3530 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3540 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3550 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3560 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3570 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3580 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3590 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3600 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3610 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3620 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3630 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3640 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3650 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3660 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3670 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3680 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3690 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3700 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3710 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3720 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3730 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3740 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3750 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3760 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3770 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3780 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3790 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3800 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3810 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3820 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3830 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3840 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3850 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3860 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3870 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3880 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3890 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3900 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3910 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3920 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3930 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3940 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3950 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3960 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3970 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3980 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     3990 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4000 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4010 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4020 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4030 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4040 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4050 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4060 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4070 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4080 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4090 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4100 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4110 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4120 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4130 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4140 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4150 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4160 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4170 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4180 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4190 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4200 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4210 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4220 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4230 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4240 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4250 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4260 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4270 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4280 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4290 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4300 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4310 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4320 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4330 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4340 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4350 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4360 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4370 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4380 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4390 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4400 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4410 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4420 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4430 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4440 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4450 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4460 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4470 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4480 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4490 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4500 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4510 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4520 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4530 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4540 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4550 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4560 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4570 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4580 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4590 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4600 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4610 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4620 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4630 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4640 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4650 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4660 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4670 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4680 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4690 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4700 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4710 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4720 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4730 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4740 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4750 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4760 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4770 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4780 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4790 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4800 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4810 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4820 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4830 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4840 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4850 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4860 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4870 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4880 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4890 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4900 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4910 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4920 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4930 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4940 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4950 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4960 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4970 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4980 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     4990 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5000 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5010 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5020 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5030 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5040 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5050 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5060 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5070 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5080 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5090 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5100 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5110 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5120 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5130 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5140 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5150 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5160 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5170 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5180 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5190 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5200 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5210 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5220 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5230 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5240 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5250 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5260 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5270 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5280 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5290 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5300 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5310 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5320 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5330 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5340 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5350 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5360 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5370 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5380 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5390 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5400 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5410 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5420 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5430 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5440 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5450 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5460 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5470 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5480 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5490 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5500 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5510 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5520 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5530 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5540 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5550 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5560 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5570 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5580 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5590 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5600 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5610 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5620 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5630 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5640 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5650 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5660 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5670 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5680 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5690 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5700 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5710 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5720 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5730 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5740 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5750 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5760 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5770 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5780 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5790 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5800 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5810 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5820 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5830 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5840 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5850 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5860 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5870 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5880 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5890 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5900 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5910 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5920 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5930 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5940 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5950 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5960 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5970 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5980 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     5990 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6000 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6010 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6020 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6030 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6040 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6050 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6060 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6070 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6080 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6090 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6100 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6110 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6120 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6130 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6140 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6150 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6160 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6170 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6180 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6190 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6200 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6210 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6220 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6230 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6240 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6250 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6260 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6270 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6280 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6290 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6300 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6310 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6320 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6330 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6340 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6350 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6360 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6370 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6380 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6390 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6400 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6410 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6420 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6430 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6440 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6450 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6460 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6470 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6480 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6490 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6500 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6510 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6520 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6530 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6540 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6550 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6560 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6570 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6580 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6590 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6600 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6610 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6620 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6630 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6640 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6650 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6660 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6670 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6680 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+     6690 |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+    final |     220 |    1399 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[23]
+--------------------------------------------------------------------------------------
+[INFO RSZ-0132] Resized 220 instances.
+[INFO RSZ-0032] Inserted 1399 hold buffers.
+[INFO RSZ-0506] Runtime: 11.91s
+Took 13 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+detailed_placement
+[INFO DPL-0006] Core area: 320266.13 um^2
+[INFO DPL-0007] Movable instances area: 74992.58 um^2
+[INFO DPL-0008] Fixed instances area within core: 121774.00 um^2
+[INFO DPL-0009] Utilization: 61.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 36513 cells
+[INFO DPL-0393]   height 81 row(s): 7 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       6588 |       832 |      2482
+        1 |       3946 |       496 |      1447
+        2 |       2469 |       413 |      1140
+        3 |       1482 |       376 |       899
+        4 |       1169 |       347 |       765
+        5 |        965 |       311 |       648
+        6 |        860 |       288 |       540
+        7 |        686 |       248 |       429
+        8 |        637 |       231 |       406
+        9 |        524 |       200 |       318
+       10 |        444 |       162 |       276
+       20 |        100 |        46 |        54
+       30 |         52 |        26 |        26
+       40 |         24 |        12 |        12
+       49 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 49.
+[INFO DPL-0500] Runtime: 2.18s
+Detailed Placement Analysis
+---------------------------------
+legalizer            negotiation
+total moves                9477
+total displacement       5573.2 u
+average displacement        0.2 u
+max displacement           59.7 u
+original HPWL          771061.7 u
+legalized HPWL         773968.8 u
+delta HPWL                    0 %
+
+Took 5 seconds: detailed_placement
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 196767 um^2 61% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_io_top_bottom/4_1_cts.odb
+write_sdc -no_timestamp /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_io_top_bottom/4_cts.sdc
+Elapsed time: 0:35.35[h:]min:sec. CPU time: user 55.58 sys 26.08 (230%). Peak memory: 391880KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+4_1_cts                .odb         35       82     2.31      382 a6bd0ee9e5

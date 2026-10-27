@@ -1,0 +1,23 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+[INFO ODB-0227] LEF file: /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.tech.lef, created 22 layers, 27 vias
+[INFO ODB-0227] LEF file: /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/NangateOpenCellLibrary.macro.mod.lef, created 135 library cells
+[INFO ODB-0227] LEF file: /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lef/fakeram45_512x64.lef, created 1 library cells
+link_design npu_top
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro6/1_2_yosys.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+eliminate_dead_logic
+Removed 0 unused instances and 0 unused nets.
+Design area 192925 um^2 100% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro6/1_synth.odb
+write_sdc -no_timestamp /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro6/1_synth.sdc
+Elapsed time: 0:00.94[h:]min:sec. CPU time: user 0.83 sys 0.17 (107%). Peak memory: 178176KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+1_synth                .odb          0        1     1.06      174 04f6d17fec
+1_synth                .sdc                                       c85cd96d99

@@ -16,8 +16,8 @@ Removed 0 unused instances and 0 unused nets.
 Design area 193383 um^2 100% utilization.
 write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/1ghz/1_synth.odb
 write_sdc -no_timestamp /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/1ghz/1_synth.sdc
-Elapsed time: 0:00.97[h:]min:sec. CPU time: user 0.71 sys 0.24 (97%). Peak memory: 178304KB.
+Elapsed time: 0:01.16[h:]min:sec. CPU time: user 0.91 sys 0.22 (97%). Peak memory: 178560KB.
 Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
                                      s        s  Elapsed       MB [0:10)
-1_synth                .odb          0        1     0.98      174 54db4f4a3b
-1_synth                .sdc                                       3af73cb8fd
+1_synth                .odb          1        1     0.97      174 54db4f4a3b
+1_synth                .sdc                                       c85cd96d99

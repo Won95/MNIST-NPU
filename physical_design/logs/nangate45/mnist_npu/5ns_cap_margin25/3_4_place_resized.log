@@ -1,0 +1,75 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_cap_margin25/3_3_place_gp.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_cap_margin25/2_floorplan.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose -cap_margin 25
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     40038
+     1000 |     +0.0% |       0 |       2 |             2 |     39038
+     2000 |     +0.0% |       0 |       9 |             9 |     38038
+     3000 |     +0.0% |       0 |      17 |            17 |     37038
+     4000 |     +0.0% |       0 |      19 |            19 |     36038
+     5000 |     +0.0% |       0 |      30 |            30 |     35038
+     6000 |     +0.0% |       0 |      41 |            41 |     34038
+     7000 |     +0.0% |       0 |      42 |            42 |     33038
+     8000 |     +0.0% |       0 |      58 |            58 |     32038
+     9000 |     +0.0% |       0 |      58 |            58 |     31038
+    10000 |     +0.1% |       0 |      84 |            84 |     30038
+    11000 |     +0.1% |       0 |      86 |            86 |     29038
+    12000 |     +0.1% |       0 |      86 |            86 |     28038
+    13000 |     +0.1% |       0 |      87 |            87 |     27038
+    14000 |     +0.1% |       0 |      92 |            92 |     26038
+    15000 |     +0.1% |       0 |     218 |           218 |     25038
+    16000 |     +0.2% |       0 |     342 |           342 |     24038
+    17000 |     +0.3% |       0 |     399 |           399 |     23038
+    18000 |     +0.3% |       0 |     415 |           415 |     22038
+    19000 |     +0.4% |       0 |     536 |           536 |     21038
+    20000 |     +0.4% |       0 |     538 |           538 |     20038
+    21000 |     +0.4% |       0 |     573 |           573 |     19038
+    22000 |     +0.4% |       0 |     594 |           594 |     18038
+    23000 |     +0.4% |       0 |     648 |           648 |     17038
+    24000 |     +0.5% |       0 |     700 |           700 |     16038
+    25000 |     +0.5% |       0 |     706 |           706 |     15038
+    26000 |     +0.5% |       0 |     706 |           706 |     14038
+    27000 |     +0.5% |       0 |     706 |           706 |     13038
+    28000 |     +0.5% |       0 |     706 |           706 |     12038
+    29000 |     +0.5% |       0 |     706 |           706 |     11038
+    30000 |     +0.5% |       0 |     706 |           706 |     10038
+    31000 |     +0.5% |       0 |     706 |           706 |      9038
+    32000 |     +0.5% |       0 |     706 |           706 |      8038
+    33000 |     +0.5% |       0 |     706 |           706 |      7038
+    34000 |     +0.5% |       0 |     706 |           706 |      6038
+    35000 |     +0.5% |       0 |     706 |           706 |      5038
+    36000 |     +0.5% |       0 |     706 |           706 |      4038
+    37000 |     +0.5% |       0 |     706 |           706 |      3038
+    38000 |     +0.5% |       0 |     706 |           706 |      2038
+    39000 |     +0.5% |       0 |     734 |           734 |      1038
+    40000 |     +0.5% |       0 |     734 |           734 |        38
+    final |     +0.5% |       0 |     734 |           734 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0036] Found 734 capacitance violations.
+[INFO RSZ-0038] Inserted 734 buffers in 734 nets.
+[INFO RSZ-0504] Runtime: 2.48s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 193982 um^2 61% utilization.
+Instance count before 32875, after 33609
+Pin count before 116734, after 118202
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_cap_margin25/3_4_place_resized.odb
+Elapsed time: 0:17.35[h:]min:sec. CPU time: user 22.82 sys 8.64 (181%). Peak memory: 268260KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+3_4_place_resized      .odb         17       31     1.81      261 85d561ae53

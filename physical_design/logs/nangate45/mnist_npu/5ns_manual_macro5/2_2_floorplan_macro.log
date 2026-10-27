@@ -1,0 +1,46 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro5/2_1_floorplan.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro5/2_1_floorplan.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+source /home/skdml/MNIST-NPU/physical_design/designs/nangate45/mnist_npu/macro.tcl
+Core: 517.56 x 618.8 um
+Left column gap  : 119.29999999999995 um
+Right column gap : 41.73333333333331 um
+Placing u_weight_memory.GEN_SRAM\[0\].u_sram at (86.27999999999997, 496.6)
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[0\].u_sram placed. Bounding box (86.280um, 496.615um), (238.850um, 610.015um). Orientation R0
+Placing u_weight_memory.GEN_SRAM\[1\].u_sram at (86.27999999999997, 263.9000000000001)
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[1\].u_sram placed. Bounding box (86.280um, 263.935um), (238.850um, 377.335um). Orientation R0
+Placing u_weight_memory.GEN_SRAM\[2\].u_sram at (86.27999999999997, 31.200000000000102)
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[2\].u_sram placed. Bounding box (86.280um, 31.255um), (238.850um, 144.655um). Orientation R0
+Placing u_weight_memory.GEN_SRAM\[3\].u_sram at (298.84999999999997, 496.6)
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[3\].u_sram placed. Bounding box (298.850um, 496.615um), (451.420um, 610.015um). Orientation R0
+Placing u_weight_memory.GEN_SRAM\[4\].u_sram at (298.84999999999997, 341.4666666666667)
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[4\].u_sram placed. Bounding box (298.850um, 341.495um), (451.420um, 454.895um). Orientation R0
+Placing u_weight_memory.GEN_SRAM\[5\].u_sram at (298.84999999999997, 186.33333333333337)
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[5\].u_sram placed. Bounding box (298.850um, 186.375um), (451.420um, 299.775um). Orientation R0
+Placing u_weight_memory.GEN_SRAM\[6\].u_sram at (298.84999999999997, 31.200000000000045)
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[6\].u_sram placed. Bounding box (298.850um, 31.255um), (451.420um, 144.655um). Orientation R0
+SRAM macro placement completed.
+rtl_macro_placer -max_num_level 2 -min_channel_size "44.8 30.24" -pin_aware_channels -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /home/skdml/MNIST-NPU/physical_design/objects/nangate45/mnist_npu/5ns_manual_macro5/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.3
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[0\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[1\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[2\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[3\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[4\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[5\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[6\].u_sram.
+[INFO MPL-0017] No unfixed macros.
+[INFO MPL-0013] Skipping macro placement.
+[INFO MPL-0500] Runtime: 0.00s
+Design area 193163 um^2 60% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro5/2_2_floorplan_macro.odb
+Elapsed time: 0:00.43[h:]min:sec. CPU time: user 0.30 sys 0.14 (102%). Peak memory: 134784KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+2_2_floorplan_macro    .odb          0        0     1.02      131 6ed5d2f733

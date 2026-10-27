@@ -25,8 +25,18 @@ export SYNTH_HDL_FRONTEND = slang
 export LEC_CHECK = 0
 export SYNTH_MEMORY_MAX_BITS = 8192
 
-# Floorplan
+# Floorplan 
 export CORE_UTILIZATION = 60
-export CORE_ASPECT_RATIO = 1
-export CORE_MARGIN = 2
+export CORE_ASPECT_RATIO = 1.2
+export CORE_MARGIN = 10
+#export DIE_AREA = 0 0 354 1019 #기존에 돌렸던 사이즈 참고 sram을 수직으로 쌓기위함
+#export CORE_AREA = 2 2 352 1017
 
+# SRAM Macro placement
+export MACRO_PLACEMENT_TCL = $(HOME)/MNIST-NPU/physical_design/designs/nangate45/mnist_npu/macro.tcl
+
+# IO position placement
+export IO_CONSTRAINTS = $(HOME)/MNIST-NPU/physical_design/designs/nangate45/mnist_npu/io_constraints.tcl
+
+# Resizer margin
+export CAP_MARGIN = 25

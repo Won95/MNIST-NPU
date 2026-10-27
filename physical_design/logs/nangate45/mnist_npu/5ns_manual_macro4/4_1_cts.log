@@ -1,0 +1,907 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro4/3_place.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro4/3_place.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[INFO CTS-0007] Net "clk" found for clock "MAIN_CLOCK".
+[INFO CTS-0011]  Clock net "clk" for macros has 7 sinks.
+[INFO CTS-0011]  Clock net "clk_regs" for registers has 7170 sinks.
+[INFO CTS-0008] TritonCTS found 2 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 2 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 7.
+[INFO CTS-0029]  Macro  sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 305.1 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0023]  Original sink region: [(325490, 31780), (749910, 1250900)].
+[INFO CTS-0024]  Normalized sink region: [(23.2493, 2.27), (53.565, 89.35)].
+[INFO CTS-0025]     Width:  30.3157.
+[INFO CTS-0026]     Height: 87.0800.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 4
+    Sub-region size: 30.3157 X 43.5400
+[INFO CTS-0034]     Segment length (rounded): 22.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 7.
+[INFO CTS-0201] 2 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_regs.
+[INFO CTS-0028]  Total number of sinks: 7170.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 9 and max clustering diameter of 86.
+[INFO CTS-0019]  Total number of sinks after clustering: 1057.
+[INFO CTS-0024]  Normalized sink region: [(1.97949, 2.27316), (73.8747, 89.5)].
+[INFO CTS-0025]     Width:  71.8952.
+[INFO CTS-0026]     Height: 87.2268.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 529
+    Sub-region size: 71.8952 X 43.6134
+[INFO CTS-0034]     Segment length (rounded): 22.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 265
+    Sub-region size: 35.9476 X 43.6134
+[INFO CTS-0034]     Segment length (rounded): 18.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 133
+    Sub-region size: 35.9476 X 21.8067
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 67
+    Sub-region size: 17.9738 X 21.8067
+[INFO CTS-0034]     Segment length (rounded): 8.
+ Level 5
+    Direction: Vertical
+    Sinks per sub-region: 34
+    Sub-region size: 17.9738 X 10.9034
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 6
+    Direction: Horizontal
+    Sinks per sub-region: 17
+    Sub-region size: 8.9869 X 10.9034
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 7
+    Direction: Vertical
+    Sinks per sub-region: 9
+    Sub-region size: 8.9869 X 5.4517
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 1057.
+[INFO CTS-0018]     Created 3 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 3 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:1, 4:1..
+[INFO CTS-0017]     Max level of the clock tree: 1.
+[INFO CTS-0018]     Created 1198 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 5.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 5.
+[INFO CTS-0015]     Created 1198 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:3, 3:8, 4:22, 5:57, 6:260, 7:588, 8:187, 9:19, 10:13, 11:9, 12:8, 13:7, 14:1, 15:2, 21:1..
+[INFO CTS-0017]     Max level of the clock tree: 7.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 7
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 891.85 um
+[INFO CTS-0102]  Path depth 2 - 2
+[INFO CTS-0207]  Dummy loads inserted 1
+[INFO CTS-0098] Clock net "clk_regs"
+[INFO CTS-0099]  Sinks 8063
+[INFO CTS-0100]  Leaf buffers 1057
+[INFO CTS-0101]  Average sink wire length 395.62 um
+[INFO CTS-0102]  Path depth 4 - 5
+[INFO CTS-0207]  Dummy loads inserted 893
+[INFO CTS-0033] Balancing latency for clock MAIN_CLOCK
+[INFO CTS-0036]  inserted 2 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 2
+[INFO CTS-0500] Runtime: 2.78s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 320266.13 um^2
+[INFO DPL-0007] Movable instances area: 73459.62 um^2
+[INFO DPL-0008] Fixed instances area within core: 121488.58 um^2
+[INFO DPL-0009] Utilization: 60.9%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 33843 cells
+[INFO DPL-0393]   height 81 row(s): 7 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       1974 |       542 |      1432
+        1 |          6 |         2 |         4
+        2 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 2.
+[INFO DPL-0500] Runtime: 0.47s
+Detailed Placement Analysis
+---------------------------------
+legalizer            negotiation
+total moves               23805
+total displacement      19508.4 u
+average displacement        0.6 u
+max displacement            7.0 u
+original HPWL          617821.0 u
+legalized HPWL         627545.1 u
+delta HPWL                    2 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 1.35s
+[INFO RSZ-0046] Found 6795 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -0.426 | -1208.614 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[62]
+       10 |       9 |      26 |            0 |    +0.0% |  -0.404 | -1202.234 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[10]
+       20 |      19 |      46 |            0 |    +0.0% |  -0.402 | -1197.738 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[20]
+       30 |      29 |      66 |            0 |    +0.0% |  -0.400 | -1193.185 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[29]
+       40 |      39 |      86 |            0 |    +0.0% |  -0.398 | -1188.611 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[36]
+       50 |      49 |     106 |            0 |    +0.1% |  -0.396 | -1184.003 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[46]
+       60 |      59 |     126 |            0 |    +0.1% |  -0.394 | -1179.523 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[52]
+       70 |      69 |     148 |            0 |    +0.1% |  -0.370 | -1174.554 | u_input_buffer.memory[579][1]$_DFFE_PP_/D
+       80 |      79 |     188 |            0 |    +0.1% |  -0.370 | -1166.017 | u_input_buffer.memory[579][1]$_DFFE_PP_/D
+       90 |      89 |     228 |            0 |    +0.1% |  -0.370 | -1157.427 | u_input_buffer.memory[579][1]$_DFFE_PP_/D
+      100 |      99 |     268 |            0 |    +0.1% |  -0.370 | -1148.786 | u_input_buffer.memory[579][1]$_DFFE_PP_/D
+      110 |     109 |     312 |            0 |    +0.2% |  -0.370 | -1139.789 | u_input_buffer.memory[579][1]$_DFFE_PP_/D
+      120 |     119 |     376 |            0 |    +0.2% |  -0.370 | -1128.901 | u_input_buffer.memory[579][1]$_DFFE_PP_/D
+      130 |     129 |     432 |            0 |    +0.2% |  -0.370 | -1118.925 | u_input_buffer.memory[579][1]$_DFFE_PP_/D
+      140 |     139 |     496 |            0 |    +0.2% |  -0.370 | -1108.170 | u_input_buffer.memory[579][1]$_DFFE_PP_/D
+      150 |     149 |     556 |            0 |    +0.3% |  -0.370 | -1097.772 | u_input_buffer.memory[579][1]$_DFFE_PP_/D
+      160 |     156 |     624 |            0 |    +0.3% |  -0.359 | -1055.237 | u_input_buffer.memory[583][5]$_DFFE_PP_/D
+      170 |     166 |     702 |            0 |    +0.3% |  -0.359 | -1037.720 | u_input_buffer.memory[583][5]$_DFFE_PP_/D
+      180 |     172 |     764 |            0 |    +0.4% |  -0.359 | -1029.329 | u_input_buffer.memory[583][5]$_DFFE_PP_/D
+      190 |     175 |     814 |            0 |    +0.4% |  -0.359 | -1023.194 | u_input_buffer.memory[583][5]$_DFFE_PP_/D
+      200 |     177 |     870 |            0 |    +0.4% |  -0.359 | -1015.950 | u_input_buffer.memory[583][5]$_DFFE_PP_/D
+      210 |     177 |     920 |            0 |    +0.4% |  -0.359 | -1009.902 | u_input_buffer.memory[583][5]$_DFFE_PP_/D
+      220 |     177 |     946 |            0 |    +0.4% |  -0.359 | -1008.400 | u_input_buffer.memory[583][5]$_DFFE_PP_/D
+      230 |     177 |     957 |            0 |    +0.4% |  -0.359 | -1008.102 | u_input_buffer.memory[583][5]$_DFFE_PP_/D
+      240 |     177 |     982 |            0 |    +0.5% |  -0.354 | -973.062 | u_input_buffer.memory[581][2]$_DFFE_PP_/D
+      250 |     177 |     992 |            0 |    +0.5% |  -0.354 | -972.906 | u_input_buffer.memory[581][2]$_DFFE_PP_/D
+      260 |     177 |     999 |            0 |    +0.5% |  -0.354 | -972.838 | u_input_buffer.memory[581][2]$_DFFE_PP_/D
+      270 |     177 |    1001 |            0 |    +0.5% |  -0.354 | -972.828 | u_input_buffer.memory[581][2]$_DFFE_PP_/D
+      280 |     177 |    1001 |            0 |    +0.5% |  -0.354 | -972.828 | u_input_buffer.memory[581][2]$_DFFE_PP_/D
+      290 |     177 |    1009 |            0 |    +0.5% |  -0.350 | -949.693 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      300 |     178 |    1025 |            0 |    +0.5% |  -0.350 | -935.692 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      310 |     179 |    1039 |            0 |    +0.5% |  -0.350 | -892.741 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      320 |     181 |    1053 |            0 |    +0.5% |  -0.350 | -819.016 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      330 |     181 |    1064 |            0 |    +0.5% |  -0.350 | -789.701 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      340 |     181 |    1075 |            0 |    +0.5% |  -0.347 | -779.044 | u_controller.state[0]$_DFF_P_/D
+      350 |     181 |    1075 |            0 |    +0.5% |  -0.347 | -779.044 | u_controller.state[0]$_DFF_P_/D
+      360 |     181 |    1075 |            0 |    +0.5% |  -0.347 | -779.044 | u_controller.state[0]$_DFF_P_/D
+      370 |     181 |    1078 |            0 |    +0.5% |  -0.345 | -777.893 | u_input_buffer.memory[578][6]$_DFFE_PP_/D
+      380 |     181 |    1081 |            0 |    +0.5% |  -0.341 | -747.414 | u_input_buffer.memory[584][0]$_DFFE_PP_/D
+      390 |     181 |    1095 |            0 |    +0.5% |  -0.341 | -733.669 | u_input_buffer.memory[584][0]$_DFFE_PP_/D
+      400 |     181 |    1096 |            0 |    +0.5% |  -0.341 | -733.661 | u_input_buffer.memory[584][0]$_DFFE_PP_/D
+      410 |     181 |    1118 |            0 |    +0.5% |  -0.339 | -560.079 | u_weight_memory.GEN_SRAM[3].u_sram/we_in
+      420 |     181 |    1132 |            0 |    +0.5% |  -0.339 | -538.814 | u_weight_memory.GEN_SRAM[3].u_sram/we_in
+      430 |     182 |    1151 |            0 |    +0.5% |  -0.330 | -520.172 | u_input_buffer.memory[625][7]$_DFFE_PP_/D
+      440 |     182 |    1158 |            0 |    +0.5% |  -0.330 | -509.854 | u_input_buffer.memory[625][7]$_DFFE_PP_/D
+      450 |     182 |    1165 |            0 |    +0.5% |  -0.330 | -482.346 | u_input_buffer.memory[625][7]$_DFFE_PP_/D
+      460 |     182 |    1187 |            0 |    +0.5% |  -0.330 | -434.516 | u_input_buffer.memory[625][7]$_DFFE_PP_/D
+      470 |     182 |    1202 |            0 |    +0.5% |  -0.330 | -425.278 | u_input_buffer.memory[625][7]$_DFFE_PP_/D
+      480 |     182 |    1210 |            0 |    +0.5% |  -0.330 | -424.310 | u_input_buffer.memory[625][7]$_DFFE_PP_/D
+      490 |     182 |    1216 |            0 |    +0.5% |  -0.330 | -422.729 | u_input_buffer.memory[625][7]$_DFFE_PP_/D
+      500 |     184 |    1248 |            0 |    +0.6% |  -0.324 | -192.530 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      510 |     184 |    1258 |            0 |    +0.6% |  -0.324 | -187.112 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      520 |     184 |    1258 |            0 |    +0.6% |  -0.324 | -187.112 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      530 |     184 |    1263 |            0 |    +0.6% |  -0.319 | -186.307 | u_weight_memory.GEN_SRAM[4].u_sram/addr_in[6]
+      540 |     184 |    1272 |            0 |    +0.6% |  -0.319 | -185.289 | u_weight_memory.GEN_SRAM[4].u_sram/addr_in[6]
+      550 |     188 |    1293 |            0 |    +0.6% |  -0.318 | -161.435 | u_weight_memory.GEN_SRAM[4].u_sram/addr_in[8]
+      560 |     192 |    1309 |            0 |    +0.6% |  -0.315 | -157.783 | u_weight_memory.GEN_SRAM[4].u_sram/addr_in[3]
+      570 |     193 |    1324 |            0 |    +0.6% |  -0.312 | -109.879 | u_input_buffer.memory[386][4]$_DFFE_PP_/D
+      580 |     195 |    1340 |            0 |    +0.6% |  -0.249 | -16.843 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      590 |     201 |    1376 |            0 |    +0.6% |  -0.249 | -10.459 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      600 |     203 |    1401 |            0 |    +0.6% |  -0.249 |  -7.186 | u_weight_memory.GEN_SRAM[0].u_sram/we_in
+      610 |     204 |    1417 |            0 |    +0.6% |  -0.236 |  -5.357 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      620 |     204 |    1425 |            0 |    +0.6% |  -0.215 |  -5.050 | u_weight_memory.bank_sel_d[2]$_DFF_P_/D
+      630 |     204 |    1427 |            0 |    +0.6% |  -0.215 |  -4.581 | u_weight_memory.bank_sel_d[2]$_DFF_P_/D
+      640 |     204 |    1429 |            0 |    +0.6% |  -0.215 |  -4.570 | u_weight_memory.bank_sel_d[2]$_DFF_P_/D
+      650 |     204 |    1429 |            0 |    +0.6% |  -0.215 |  -4.570 | u_weight_memory.bank_sel_d[2]$_DFF_P_/D
+      660 |     204 |    1429 |            0 |    +0.6% |  -0.215 |  -4.570 | u_weight_memory.bank_sel_d[2]$_DFF_P_/D
+      670 |     204 |    1440 |            0 |    +0.6% |  -0.147 |  -1.672 | u_controller.state[0]$_DFF_P_/D
+      680 |     204 |    1447 |            0 |    +0.6% |  -0.147 |  -1.509 | u_controller.state[0]$_DFF_P_/D
+      690 |     204 |    1447 |            0 |    +0.6% |  -0.147 |  -1.509 | u_controller.state[0]$_DFF_P_/D
+      700 |     204 |    1447 |            0 |    +0.6% |  -0.147 |  -1.509 | u_controller.state[0]$_DFF_P_/D
+      710 |     204 |    1447 |            0 |    +0.6% |  -0.147 |  -1.509 | u_controller.state[0]$_DFF_P_/D
+      720 |     204 |    1447 |            0 |    +0.6% |  -0.147 |  -1.509 | u_controller.state[0]$_DFF_P_/D
+      730 |     204 |    1447 |            0 |    +0.6% |  -0.147 |  -1.509 | u_controller.state[0]$_DFF_P_/D
+      740 |     204 |    1447 |            0 |    +0.6% |  -0.147 |  -1.509 | u_controller.state[0]$_DFF_P_/D
+      750 |     204 |    1447 |            0 |    +0.6% |  -0.147 |  -1.509 | u_controller.state[0]$_DFF_P_/D
+      760 |     204 |    1447 |            0 |    +0.6% |  -0.147 |  -1.509 | u_controller.state[0]$_DFF_P_/D
+      770 |     204 |    1452 |            0 |    +0.7% |  -0.147 |  -1.245 | u_controller.state[0]$_DFF_P_/D
+      780 |     204 |    1452 |            0 |    +0.7% |  -0.147 |  -1.245 | u_controller.state[0]$_DFF_P_/D
+      790 |     204 |    1452 |            0 |    +0.7% |  -0.147 |  -1.245 | u_controller.state[0]$_DFF_P_/D
+      800 |     204 |    1452 |            0 |    +0.7% |  -0.147 |  -1.245 | u_controller.state[0]$_DFF_P_/D
+      810 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      820 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      830 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      840 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      850 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      860 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      870 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      880 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      890 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      900 |     204 |    1457 |            0 |    +0.7% |  -0.147 |  -0.637 | u_controller.state[0]$_DFF_P_/D
+      910 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+      920 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+      930 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+      940 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+      950 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+      960 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+      970 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+      980 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+      990 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1000 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1010 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1020 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1030 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1040 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1050 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1060 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1070 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1080 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1090 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1100 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1110 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1120 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1130 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1140 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1150 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1160 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1170 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1180 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1190 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1200 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1210 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1220 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1230 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1240 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1250 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1260 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1270 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1280 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1290 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1300 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1310 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1320 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1330 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1340 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1350 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1360 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1370 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1380 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1390 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1400 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1410 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1420 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1430 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1440 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1450 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1460 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1470 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1480 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1490 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1500 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1510 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1520 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1530 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1540 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1550 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1560 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1570 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1580 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1590 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1600 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1610 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1620 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1630 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1640 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1650 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1660 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1670 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1680 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1690 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1700 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1710 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1720 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1730 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1740 |     204 |    1463 |            0 |    +0.7% |  -0.014 |  -0.072 | u_input_buffer.memory[22][7]$_DFFE_PP_/D
+     1750 |     204 |    1464 |            0 |    +0.7% |  -0.011 |  -0.058 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1760 |     204 |    1464 |            0 |    +0.7% |  -0.011 |  -0.058 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1770 |     204 |    1464 |            0 |    +0.7% |  -0.011 |  -0.058 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1780 |     204 |    1464 |            0 |    +0.7% |  -0.011 |  -0.058 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1790 |     204 |    1464 |            0 |    +0.7% |  -0.011 |  -0.058 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1800 |     204 |    1464 |            0 |    +0.7% |  -0.011 |  -0.058 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1810 |     204 |    1464 |            0 |    +0.7% |  -0.011 |  -0.058 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1820 |     204 |    1465 |            0 |    +0.7% |  -0.011 |  -0.024 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1830 |     204 |    1465 |            0 |    +0.7% |  -0.011 |  -0.024 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1840 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1850 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1860 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1870 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1880 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1890 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1900 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1910 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1920 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1930 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1940 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1950 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1960 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1970 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1980 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     1990 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2000 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2010 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2020 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2030 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2040 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2050 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2060 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2070 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2080 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2090 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2100 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2110 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2120 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2130 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2140 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2150 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2160 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2170 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2180 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2190 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2200 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2210 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2220 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2230 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2240 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2250 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2260 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2270 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2280 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2290 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2300 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2310 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2320 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2330 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2340 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2350 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2360 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2370 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2380 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2390 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2400 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2410 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2420 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2430 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2440 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2450 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2460 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2470 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2480 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2490 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2500 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2510 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2520 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2530 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2540 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2550 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2560 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2570 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2580 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2590 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2600 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2610 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2620 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2630 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2640 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2650 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2660 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2670 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2680 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2690 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2700 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2710 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2720 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2730 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2740 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2750 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2760 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2770 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2780 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2790 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2800 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2810 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2820 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2830 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2840 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2850 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2860 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2870 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2880 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2890 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2900 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2910 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2920 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2930 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2940 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2950 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2960 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2970 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2980 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     2990 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3000 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3010 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3020 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3030 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3040 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3050 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3060 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3070 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3080 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3090 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3100 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3110 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3120 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3130 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3140 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3150 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3160 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3170 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3180 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3190 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3200 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3210 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3220 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3230 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3240 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3250 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3260 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3270 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3280 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3290 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3300 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3310 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3320 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3330 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3340 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3350 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3360 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3370 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3380 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3390 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3400 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3410 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3420 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3430 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3440 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3450 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3460 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3470 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3480 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3490 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3500 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3510 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3520 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3530 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3540 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3550 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3560 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3570 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3580 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3590 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3600 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3610 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3620 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3630 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3640 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3650 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3660 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3670 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3680 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3690 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3700 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3710 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3720 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3730 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3740 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3750 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3760 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3770 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3780 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3790 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3800 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3810 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3820 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3830 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3840 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3850 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3860 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3870 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3880 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3890 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3900 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3910 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3920 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3930 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3940 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3950 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3960 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3970 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3980 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     3990 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4000 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4010 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4020 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4030 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4040 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4050 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4060 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4070 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4080 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4090 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4100 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4110 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4120 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4130 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4140 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4150 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4160 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4170 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4180 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4190 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4200 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4210 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4220 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4230 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4240 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4250 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4260 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4270 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4280 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4290 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4300 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4310 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4320 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4330 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4340 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4350 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4360 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4370 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4380 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4390 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4400 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4410 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4420 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4430 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4440 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4450 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4460 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4470 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4480 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4490 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4500 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4510 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4520 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4530 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4540 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4550 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4560 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4570 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4580 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4590 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4600 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4610 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4620 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4630 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4640 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4650 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4660 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4670 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4680 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4690 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4700 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4710 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4720 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4730 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4740 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4750 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4760 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4770 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4780 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4790 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4800 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4810 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4820 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4830 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4840 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4850 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4860 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4870 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4880 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4890 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4900 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4910 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4920 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4930 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4940 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4950 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4960 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4970 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4980 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     4990 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5000 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5010 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5020 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5030 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5040 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5050 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5060 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5070 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5080 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5090 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5100 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5110 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5120 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5130 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5140 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5150 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5160 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5170 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5180 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5190 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5200 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5210 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5220 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5230 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5240 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5250 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5260 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5270 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5280 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5290 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5300 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5310 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5320 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5330 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5340 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5350 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5360 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5370 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5380 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5390 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5400 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5410 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5420 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5430 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5440 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5450 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5460 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5470 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5480 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5490 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5500 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5510 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5520 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5530 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5540 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5550 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5560 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5570 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5580 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5590 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5600 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5610 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5620 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5630 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5640 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5650 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5660 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5670 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5680 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5690 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5700 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5710 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5720 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5730 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5740 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5750 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5760 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5770 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5780 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5790 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5800 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5810 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5820 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5830 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5840 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5850 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5860 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5870 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5880 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5890 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5900 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5910 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5920 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5930 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5940 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5950 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5960 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5970 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5980 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     5990 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6000 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6010 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6020 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6030 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6040 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6050 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6060 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6070 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6080 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6090 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6100 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6110 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6120 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6130 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6140 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6150 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6160 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6170 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6180 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6190 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6200 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6210 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6220 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6230 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6240 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6250 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6260 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6270 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6280 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6290 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6300 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6310 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6320 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6330 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6340 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6350 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6360 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6370 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6380 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6390 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6400 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6410 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6420 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6430 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6440 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6450 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6460 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6470 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6480 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6490 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6500 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6510 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6520 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6530 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6540 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6550 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6560 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6570 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6580 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6590 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6600 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6610 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6620 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6630 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6640 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6650 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6660 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6670 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6680 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6690 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6700 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6710 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6720 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6730 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6740 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6750 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6760 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6770 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6780 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+     6790 |     204 |    1466 |            0 |    +0.7% |  -0.011 |  -0.022 | u_input_buffer.memory[385][4]$_DFFE_PP_/D
+    final |     204 |    1467 |            0 |    +0.7% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[2].u_sram/wd_in[33]
+--------------------------------------------------------------------------------------
+[INFO RSZ-0132] Resized 204 instances.
+[INFO RSZ-0032] Inserted 1467 hold buffers.
+[INFO RSZ-0506] Runtime: 13.99s
+Took 15 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+detailed_placement
+[INFO DPL-0006] Core area: 320266.13 um^2
+[INFO DPL-0007] Movable instances area: 74738.82 um^2
+[INFO DPL-0008] Fixed instances area within core: 121488.58 um^2
+[INFO DPL-0009] Utilization: 61.3%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 35310 cells
+[INFO DPL-0393]   height 81 row(s): 7 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       7914 |       922 |      2738
+        1 |       4378 |       516 |      1515
+        2 |       3051 |       441 |      1217
+        3 |       1774 |       448 |      1121
+        4 |       1521 |       447 |      1025
+        5 |       1355 |       402 |       929
+        6 |       1195 |       375 |       814
+        7 |       1084 |       352 |       723
+        8 |        971 |       331 |       620
+        9 |        921 |       317 |       598
+       10 |        851 |       305 |       546
+       20 |        226 |        86 |       140
+       30 |         83 |        39 |        44
+       40 |         55 |        23 |        32
+       50 |         29 |        13 |        16
+       60 |         10 |         4 |         6
+       66 |          8 |         4 |         4
+[WARNING DPL-0700] Negotiation phase 1: violations stuck at 8 for 3 consecutive iterations.
+Using old diamond search for 4 remaining illegal cells.
+diamond recovery: recovered 2/4 stuck cells.
+Negotiation phase 2: isolation point active, 1000 iterations.
+      400 |          0 |         0 |         0
+Negotiation phase 2 converged at iteration 0.
+[INFO DPL-0500] Runtime: 2.37s
+Detailed Placement Analysis
+---------------------------------
+legalizer            negotiation
+total moves               12083
+total displacement      12150.9 u
+average displacement        0.3 u
+max displacement          148.7 u
+original HPWL          659000.2 u
+legalized HPWL         662889.5 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 196227 um^2 61% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro4/4_1_cts.odb
+write_sdc -no_timestamp /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns_manual_macro4/4_cts.sdc
+Elapsed time: 0:40.75[h:]min:sec. CPU time: user 64.38 sys 28.52 (227%). Peak memory: 475460KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+4_1_cts                .odb         40       93     2.28      464 6b1d1de914

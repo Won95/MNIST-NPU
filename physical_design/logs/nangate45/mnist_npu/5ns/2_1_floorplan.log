@@ -1,0 +1,152 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns/1_synth.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns/1_synth.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+
+==========================================================================
+Floorplan check_setup
+--------------------------------------------------------------------------
+Warning: There is 1 input port missing set_input_delay.
+number instances in verilog is 31212
+initialize_floorplan -utilization 60 -aspect_ratio 1 -core_space 2 -site FreePDK45_38x28_10R_NP_162NW_34O
+[INFO IFP-0107] Defining die area using utilization: 60.00% and aspect ratio: 1.
+[WARNING IFP-0028] Core area lower left (2.000, 2.000) snapped to (2.090, 2.800).
+[INFO IFP-0001] Added 404 rows of 2987 site FreePDK45_38x28_10R_NP_162NW_34O.
+[INFO IFP-0100] Die BBox:  (  0.000  0.000 ) ( 571.720 571.720 ) um
+[INFO IFP-0101] Core BBox: (  2.090  2.800 ) ( 569.620 568.400 ) um
+[INFO IFP-0102] Core area:                       320994.968 um^2
+[INFO IFP-0103] Total instances area:            193383.064 um^2
+[INFO IFP-0104] Effective utilization:                0.602
+[INFO IFP-0105] Number of instances:                  31212
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/make_tracks.tcl
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/fastroute.tcl
+set_dont_use "TAPCELL_X1 FILLCELL_X1 AOI211_X1 OAI211_X1"
+repair_tie_fanout -separation 0 NangateOpenCellLibrary/LOGIC0_X1/Z
+repair_tie_fanout -separation 0 NangateOpenCellLibrary/LOGIC1_X1/Z
+[INFO RSZ-0042] Inserted 448 tie LOGIC1_X1 instances.
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+[WARNING EST-0027] no estimated parasitics. Using wire load models.
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove 
+[INFO RSZ-0094] Found 4 endpoints with setup violations.
+[INFO RSZ-0099] Repairing 4 out of 4 (100.00%) violating endpoints...
+   Iter   | Removed | Resized | Inserted | Cloned |  Pin  |   Area   |    WNS   |    TNS     |  Viol  |  Worst
+          | Buffers |  Gates  | Buffers  |  Gates | Swaps |          |          |            | Endpts | Endpoint
+------------------------------------------------------------------------------------------------------------------------------
+       0* |       0 |       0 |        0 |      0 |     0 |    +0.0% |   -1.123 |       -4.4 |      4 | digit[1]
+      10* |       0 |       9 |        0 |      0 |     0 |    +0.0% |   -1.055 |       -4.2 |      4 | digit[1]
+      20* |       0 |      19 |        0 |      0 |     0 |    +0.0% |   -0.964 |       -3.8 |      4 | digit[1]
+      30* |       0 |      25 |        0 |      0 |     4 |    +0.0% |   -0.949 |       -3.8 |      4 | digit[1]
+      40* |       0 |      35 |        0 |      0 |     4 |    +0.0% |   -0.914 |       -3.6 |      4 | digit[1]
+      50* |       0 |      45 |        0 |      0 |     4 |    +0.0% |   -0.882 |       -3.5 |      4 | digit[1]
+      60* |       0 |      55 |        0 |      0 |     4 |    +0.0% |   -0.836 |       -3.3 |      4 | digit[1]
+      70* |       0 |      65 |        0 |      0 |     4 |    +0.0% |   -0.816 |       -3.2 |      4 | digit[1]
+      80* |       0 |      75 |        0 |      0 |     4 |    +0.0% |   -0.789 |       -3.1 |      4 | digit[1]
+      90* |       0 |      80 |        0 |      0 |     9 |    +0.0% |   -0.768 |       -3.0 |      4 | digit[1]
+     100* |       0 |      86 |        0 |      0 |    13 |    +0.0% |   -0.771 |       -3.1 |      4 | digit[1]
+     110* |       0 |      92 |        0 |      0 |    17 |    +0.0% |   -0.772 |       -3.1 |      4 | digit[1]
+     120* |       0 |      98 |        0 |      0 |    21 |    +0.0% |   -0.756 |       -3.0 |      4 | digit[1]
+     130* |       0 |     107 |        0 |      0 |    22 |    +0.0% |   -0.688 |       -2.7 |      4 | digit[1]
+     140* |       0 |     116 |        0 |      0 |    23 |    +0.0% |   -0.677 |       -2.7 |      4 | digit[1]
+     150* |       0 |     123 |        0 |      0 |    26 |    +0.0% |   -0.667 |       -2.6 |      4 | digit[1]
+     160* |       0 |     132 |        0 |      0 |    27 |    +0.0% |   -0.662 |       -2.6 |      4 | digit[1]
+     170* |       0 |     140 |        0 |      0 |    29 |    +0.1% |   -0.663 |       -2.6 |      4 | digit[1]
+     180* |       0 |     147 |        0 |      0 |    32 |    +0.1% |   -0.668 |       -2.7 |      4 | digit[1]
+     190* |       0 |     153 |        0 |      0 |    36 |    +0.1% |   -0.657 |       -2.6 |      4 | digit[1]
+     200* |       0 |     159 |        0 |      0 |    40 |    +0.1% |   -0.640 |       -2.5 |      4 | digit[1]
+     210* |       0 |     166 |        0 |      0 |    43 |    +0.1% |   -0.636 |       -2.5 |      4 | digit[1]
+     220* |       0 |     175 |        0 |      0 |    44 |    +0.1% |   -0.619 |       -2.5 |      4 | digit[1]
+     230* |       0 |     183 |        0 |      0 |    46 |    +0.1% |   -0.599 |       -2.4 |      4 | digit[1]
+     240* |       0 |     191 |        0 |      0 |    48 |    +0.1% |   -0.596 |       -2.4 |      4 | digit[1]
+     250* |       0 |     199 |        0 |      0 |    50 |    +0.1% |   -0.588 |       -2.3 |      4 | digit[1]
+     260* |       0 |     205 |        0 |      0 |    54 |    +0.1% |   -0.585 |       -2.3 |      4 | digit[1]
+     270* |       0 |     212 |        0 |      0 |    57 |    +0.1% |   -0.582 |       -2.3 |      4 | digit[1]
+     280* |       0 |     219 |        0 |      0 |    60 |    +0.1% |   -0.576 |       -2.3 |      4 | digit[1]
+     290* |       0 |     228 |        0 |      0 |    61 |    +0.1% |   -0.567 |       -2.2 |      4 | digit[1]
+     300* |       0 |     233 |        0 |      0 |    66 |    +0.1% |   -0.557 |       -2.2 |      4 | digit[1]
+     310* |       0 |     240 |        0 |      0 |    69 |    +0.1% |   -0.558 |       -2.2 |      4 | digit[1]
+     320* |       0 |     246 |        0 |      0 |    73 |    +0.1% |   -0.553 |       -2.2 |      4 | digit[1]
+     330* |       0 |     252 |        0 |      0 |    77 |    +0.1% |   -0.540 |       -2.1 |      4 | digit[1]
+     340* |       0 |     258 |        0 |      0 |    81 |    +0.1% |   -0.526 |       -2.1 |      4 | digit[1]
+     350* |       0 |     265 |        0 |      0 |    84 |    +0.1% |   -0.513 |       -2.0 |      4 | digit[1]
+     360* |       0 |     274 |        0 |      0 |    85 |    +0.1% |   -0.506 |       -2.0 |      4 | digit[1]
+     370* |       0 |     279 |        0 |      0 |    90 |    +0.1% |   -0.508 |       -2.0 |      4 | digit[1]
+     380* |       0 |     289 |        0 |      0 |    90 |    +0.1% |   -0.507 |       -2.0 |      4 | digit[1]
+     390* |       0 |     298 |        0 |      0 |    91 |    +0.1% |   -0.510 |       -2.0 |      4 | digit[1]
+     400* |       0 |     303 |        0 |      0 |    96 |    +0.1% |   -0.507 |       -2.0 |      4 | digit[1]
+     410* |       0 |     310 |        0 |      0 |    99 |    +0.1% |   -0.508 |       -2.0 |      4 | digit[0]
+     420* |       0 |     317 |        0 |      0 |   102 |    +0.1% |   -0.515 |       -2.0 |      4 | digit[2]
+     430* |       0 |     326 |        0 |      0 |   103 |    +0.2% |   -0.510 |       -2.0 |      4 | digit[2]
+     440* |       0 |     335 |        0 |      0 |   104 |    +0.2% |   -0.491 |       -1.9 |      4 | digit[2]
+     450* |       0 |     343 |        0 |      0 |   106 |    +0.2% |   -0.484 |       -1.9 |      4 | digit[1]
+     460* |       0 |     350 |        0 |      0 |   109 |    +0.2% |   -0.480 |       -1.9 |      4 | digit[1]
+     470* |       0 |     357 |        0 |      0 |   112 |    +0.2% |   -0.471 |       -1.9 |      4 | digit[1]
+     480* |       0 |     365 |        0 |      0 |   114 |    +0.2% |   -0.461 |       -1.8 |      4 | digit[1]
+     490* |       0 |     371 |        0 |      0 |   118 |    +0.2% |   -0.466 |       -1.8 |      4 | digit[1]
+     492* |       0 |     367 |        0 |      0 |   116 |    +0.2% |   -0.458 |       -1.8 |      4 | digit[1]
+     500* |       0 |     371 |        0 |      0 |   119 |    +0.2% |   -0.456 |       -1.8 |      4 | digit[1]
+     500* |       0 |     371 |        0 |      0 |   119 |    +0.2% |   -0.456 |       -1.8 |      4 | digit[1]
+     501* |       0 |     371 |        0 |      0 |   119 |    +0.2% |   -0.456 |       -1.8 |      4 | digit[1]
+     502* |       0 |     371 |        0 |      0 |   119 |    +0.2% |   -0.456 |       -1.8 |      4 | digit[1]
+     502* |       0 |     371 |        0 |      0 |   119 |    +0.2% |   -0.456 |       -1.8 |      4 | digit[1]
+    final |       0 |     371 |        0 |      0 |   119 |    +0.2% |   -0.456 |       -1.8 |      4 | digit[1]
+------------------------------------------------------------------------------------------------------------------------------
+[INFO RSZ-0051] Resized 371 instances: 371 up, 0 up match, 0 down, 0 VT
+[INFO RSZ-0043] Swapped pins on 119 instances.
+[WARNING RSZ-0062] Unable to repair all setup violations.
+[INFO RSZ-0505] Runtime: 21.85s
+Took 23 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -setup -skip_last_gasp -sequence unbuffer,sizeup,swap,vt_swap -verbose
+Default units for flow
+ time 1ns
+ capacitance 1fF
+ resistance 1kohm
+ voltage 1v
+ current 1mA
+ power 1nW
+ distance 1um
+   Layer   | Unit Resistance | Unit Capacitance 
+           |       (kohm/um) |          (fF/um)
+------------------------------------------------
+    metal1 |        5.43e-03 |         7.42e-02
+    metal2 |        3.57e-03 |         8.34e-02
+    metal3 |        3.57e-03 |         1.04e-01
+    metal4 |        1.50e-03 |         1.19e-01
+    metal5 |        1.50e-03 |         1.09e-01
+    metal6 |        1.50e-03 |         1.14e-01
+    metal7 |        1.88e-04 |         1.17e-01
+    metal8 |        1.88e-04 |         9.45e-02
+    metal9 |        3.75e-05 |         1.06e-01
+   metal10 |        3.75e-05 |         7.37e-01
+------------------------------------------------
+
+   Layer   | Via Resistance 
+           |         (kohm) 
+----------------------------
+      via1 |       5.00e-03 
+      via2 |       5.00e-03 
+      via3 |       5.00e-03 
+      via4 |       3.00e-03 
+      via5 |       3.00e-03 
+      via6 |       3.00e-03 
+      via7 |       1.00e-03 
+      via8 |       1.00e-03 
+      via9 |       5.00e-04 
+----------------------------
+Report metrics stage 2, floorplan final...
+
+==========================================================================
+floorplan final report_design_area
+--------------------------------------------------------------------------
+Design area 193978 um^2 60% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns/2_1_floorplan.odb
+write_sdc -no_timestamp /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/5ns/2_1_floorplan.sdc
+Elapsed time: 0:30.53[h:]min:sec. CPU time: user 35.45 sys 19.68 (180%). Peak memory: 255900KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+2_1_floorplan          .odb         30       55     1.81      249 59e485782d
+2_1_floorplan          .sdc                                       c85cd96d99

@@ -1,0 +1,24 @@
+[INFO] SRAM Weight Loading Start
+[INFO] SRAM Weight Loading Complete: 3200 words
+================================
+[DEBUG] SRAM Write Verification
+Bank 0 Addr 0: expected=0001000000000001 actual=0001000000000001
+Bank 0 Addr 1: expected=010000000100ff01 actual=010000000100ff01
+Bank 1 Addr 0: expected=f70004fbfffffb04 actual=f70004fbfffffb04
+Bank 2 Addr 0: expected=ff0700000302fefe actual=ff0700000302fefe
+Bank 3 Addr 0: expected=fe0200fefffefb01 actual=fe0200fefffefb01
+Bank 4 Addr 0: expected=fa06fd01fc04fcf9 actual=fa06fd01fc04fcf9
+Bank 5 Addr 0: expected=04fa05fd04010904 actual=04fa05fd04010904
+Bank 6 Addr 0: expected=030805fafd030706 actual=030805fafd030706
+[PASS] SRAM Write Verification
+================================
+[PASS] Image Load Verification: sample=0, 784/784 pixels (via input_load_*)
+[PASS] Image Load Verification: sample=99, 784/784 pixels (via input_load_*)
+Progress 100/100 RTL_correct=98 Python_correct=98 mismatches=0
+================================
+Image Load Verification: 100/100 images, 784 pixels each
+MNIST RTL TEST: samples=100 mismatches=0
+RTL classification accuracy: 98/100 (98.00%)
+Python classification accuracy: 98/100 (98.00%)
+[PASS] RTL equals Python golden model
+tb/tb_npu_mnist_extended.sv:360: $finish called at 4052030000 (1ps)
