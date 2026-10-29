@@ -1,0 +1,7 @@
+KLayout 0.28.16
+[INFO] Reporting cells prior to loading DEF ...
+	/home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/gds/NangateOpenCellLibrary.gds
+[INFO] GDS_ALLOW_EMPTY=fakeram.*
+[WARNING] LEF Cell 'fakeram45_512x64' ignored. Matches GDS_ALLOW_EMPTY.
+[INFO] No orphan cells in the final layout
+Elapsed time: 0:04.14[h:]min:sec. CPU time: user 3.51 sys 0.76 (103%). Peak memory: 633300KB.

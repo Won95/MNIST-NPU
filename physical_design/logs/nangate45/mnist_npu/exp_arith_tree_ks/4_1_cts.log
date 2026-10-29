@@ -1,0 +1,895 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree_ks/3_place.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree_ks/3_place.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[INFO CTS-0007] Net "clk" found for clock "MAIN_CLOCK".
+[INFO CTS-0011]  Clock net "clk" for macros has 7 sinks.
+[INFO CTS-0011]  Clock net "clk_regs" for registers has 7170 sinks.
+[INFO CTS-0008] TritonCTS found 2 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 7 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 7.
+[INFO CTS-0029]  Macro  sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 305.1 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0023]  Original sink region: [(385210, 280420), (678790, 1199940)].
+[INFO CTS-0024]  Normalized sink region: [(27.515, 20.03), (48.485, 85.71)].
+[INFO CTS-0025]     Width:  20.9700.
+[INFO CTS-0026]     Height: 65.6800.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 4
+    Sub-region size: 20.9700 X 32.8400
+[INFO CTS-0034]     Segment length (rounded): 16.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 7.
+[INFO CTS-0201] 7 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_regs.
+[INFO CTS-0028]  Total number of sinks: 7170.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 9 and max clustering diameter of 109.
+[INFO CTS-0019]  Total number of sinks after clustering: 1072.
+[INFO CTS-0024]  Normalized sink region: [(1.89418, 2.16262), (73.9552, 88.6732)].
+[INFO CTS-0025]     Width:  72.0611.
+[INFO CTS-0026]     Height: 86.5105.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 536
+    Sub-region size: 72.0611 X 43.2553
+[INFO CTS-0034]     Segment length (rounded): 22.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 268
+    Sub-region size: 36.0305 X 43.2553
+[INFO CTS-0034]     Segment length (rounded): 18.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 134
+    Sub-region size: 36.0305 X 21.6276
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 67
+    Sub-region size: 18.0153 X 21.6276
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 5
+    Direction: Vertical
+    Sinks per sub-region: 34
+    Sub-region size: 18.0153 X 10.8138
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 6
+    Direction: Horizontal
+    Sinks per sub-region: 17
+    Sub-region size: 9.0076 X 10.8138
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 7
+    Direction: Vertical
+    Sinks per sub-region: 9
+    Sub-region size: 9.0076 X 5.4069
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 1072.
+[INFO CTS-0018]     Created 3 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 3 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:1, 4:1..
+[INFO CTS-0017]     Max level of the clock tree: 1.
+[INFO CTS-0018]     Created 1277 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 6.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 6.
+[INFO CTS-0015]     Created 1277 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:4, 3:10, 4:20, 5:48, 6:311, 7:594, 8:150, 9:20, 10:17, 11:12, 12:8, 13:4, 14:1, 16:1..
+[INFO CTS-0017]     Max level of the clock tree: 7.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 7
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 795.08 um
+[INFO CTS-0102]  Path depth 2 - 2
+[INFO CTS-0207]  Dummy loads inserted 1
+[INFO CTS-0098] Clock net "clk_regs"
+[INFO CTS-0099]  Sinks 7949
+[INFO CTS-0100]  Leaf buffers 1072
+[INFO CTS-0101]  Average sink wire length 450.80 um
+[INFO CTS-0102]  Path depth 5 - 6
+[INFO CTS-0207]  Dummy loads inserted 779
+[INFO CTS-0033] Balancing latency for clock MAIN_CLOCK
+[INFO CTS-0036]  inserted 3 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 3
+[INFO CTS-0500] Runtime: 2.25s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 313872.55 um^2
+[INFO DPL-0007] Movable instances area: 70049.77 um^2
+[INFO DPL-0008] Fixed instances area within core: 121770.01 um^2
+[INFO DPL-0009] Utilization: 61.1%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 34473 cells
+[INFO DPL-0393]   height 81 row(s): 7 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       1634 |       464 |      1170
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.51s
+Detailed Placement Analysis
+---------------------------------
+legalizer            negotiation
+total moves               23418
+total displacement      18408.9 u
+average displacement        0.5 u
+max displacement            6.3 u
+original HPWL          752202.1 u
+legalized HPWL         761030.0 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 1.28s
+[INFO RSZ-0046] Found 6714 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -0.457 | -1118.736 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[37]
+       10 |       0 |      18 |            0 |    +0.0% |  -0.456 | -1110.277 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[42]
+       20 |       0 |      38 |            0 |    +0.0% |  -0.452 | -1100.422 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[62]
+       30 |       6 |      58 |            0 |    +0.0% |  -0.450 | -1092.969 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[51]
+       40 |      16 |      78 |            0 |    +0.0% |  -0.448 | -1087.885 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[23]
+       50 |      26 |      98 |            0 |    +0.0% |  -0.447 | -1083.380 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[14]
+       60 |      36 |     118 |            0 |    +0.1% |  -0.444 | -1078.236 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[25]
+       70 |      39 |     154 |            0 |    +0.1% |  -0.433 | -1069.513 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[11]
+       80 |      45 |     194 |            0 |    +0.1% |  -0.433 | -1060.766 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[11]
+       90 |      47 |     234 |            0 |    +0.1% |  -0.433 | -1050.482 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[11]
+      100 |      50 |     274 |            0 |    +0.1% |  -0.433 | -1039.591 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[11]
+      110 |      60 |     312 |            0 |    +0.1% |  -0.432 | -1030.255 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[0]
+      120 |      70 |     351 |            0 |    +0.2% |  -0.428 | -1021.914 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[10]
+      130 |      79 |     396 |            0 |    +0.2% |  -0.381 | -1013.329 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      140 |      86 |     474 |            0 |    +0.2% |  -0.381 | -1002.927 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      150 |      87 |     554 |            0 |    +0.3% |  -0.381 | -993.888 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      160 |      88 |     635 |            0 |    +0.3% |  -0.381 | -985.086 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      170 |      88 |     722 |            0 |    +0.3% |  -0.381 | -978.931 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      180 |      90 |     805 |            0 |    +0.4% |  -0.381 | -971.776 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      190 |     100 |     885 |            0 |    +0.4% |  -0.381 | -959.967 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      200 |     103 |     909 |            0 |    +0.4% |  -0.381 | -956.537 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      210 |     103 |     916 |            0 |    +0.4% |  -0.381 | -956.509 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      220 |     103 |     923 |            0 |    +0.4% |  -0.381 | -956.475 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      230 |     103 |     927 |            0 |    +0.4% |  -0.381 | -956.427 | u_input_buffer.memory[628][6]$_DFFE_PP_/D
+      240 |     105 |     965 |            0 |    +0.4% |  -0.363 | -865.963 | u_input_buffer.memory[573][3]$_DFFE_PP_/D
+      250 |     108 |    1020 |            0 |    +0.5% |  -0.355 | -722.945 | u_controller.state[0]$_DFF_P_/D
+      260 |     108 |    1081 |            0 |    +0.5% |  -0.347 | -615.257 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      270 |     109 |    1118 |            0 |    +0.5% |  -0.325 | -543.714 | u_weight_memory.GEN_SRAM[1].u_sram/addr_in[2]
+      280 |     109 |    1130 |            0 |    +0.5% |  -0.325 | -542.191 | u_weight_memory.GEN_SRAM[1].u_sram/addr_in[2]
+      290 |     109 |    1134 |            0 |    +0.5% |  -0.325 | -541.495 | u_weight_memory.GEN_SRAM[1].u_sram/addr_in[2]
+      300 |     109 |    1149 |            0 |    +0.5% |  -0.325 | -497.220 | u_weight_memory.GEN_SRAM[1].u_sram/addr_in[2]
+      310 |     109 |    1157 |            0 |    +0.5% |  -0.325 | -493.520 | u_weight_memory.GEN_SRAM[1].u_sram/addr_in[2]
+      320 |     109 |    1162 |            0 |    +0.5% |  -0.325 | -493.453 | u_weight_memory.GEN_SRAM[1].u_sram/addr_in[2]
+      330 |     116 |    1190 |            0 |    +0.5% |  -0.323 | -484.011 | u_weight_memory.GEN_SRAM[1].u_sram/we_in
+      340 |     116 |    1196 |            0 |    +0.5% |  -0.322 | -483.713 | u_weight_memory.GEN_SRAM[1].u_sram/addr_in[8]
+      350 |     118 |    1212 |            0 |    +0.5% |  -0.317 | -453.949 | u_input_buffer.memory[628][1]$_DFFE_PP_/D
+      360 |     118 |    1213 |            0 |    +0.5% |  -0.317 | -453.949 | u_input_buffer.memory[628][1]$_DFFE_PP_/D
+      370 |     118 |    1233 |            0 |    +0.5% |  -0.302 | -189.036 | u_weight_memory.GEN_SRAM[6].u_sram/we_in
+      380 |     118 |    1249 |            0 |    +0.6% |  -0.243 | -164.427 | u_weight_memory.bank_sel_d[0]$_DFF_P_/D
+      390 |     118 |    1255 |            0 |    +0.6% |  -0.243 | -152.513 | u_weight_memory.bank_sel_d[0]$_DFF_P_/D
+      400 |     118 |    1255 |            0 |    +0.6% |  -0.243 | -152.513 | u_weight_memory.bank_sel_d[0]$_DFF_P_/D
+      410 |     118 |    1255 |            0 |    +0.6% |  -0.243 | -152.513 | u_weight_memory.bank_sel_d[0]$_DFF_P_/D
+      420 |     118 |    1255 |            0 |    +0.6% |  -0.243 | -152.513 | u_weight_memory.bank_sel_d[0]$_DFF_P_/D
+      430 |     118 |    1270 |            0 |    +0.6% |  -0.240 | -136.900 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      440 |     118 |    1283 |            0 |    +0.6% |  -0.240 | -80.220 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      450 |     118 |    1305 |            0 |    +0.6% |  -0.240 | -78.135 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      460 |     118 |    1327 |            0 |    +0.6% |  -0.240 | -76.090 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      470 |     118 |    1335 |            0 |    +0.6% |  -0.240 | -75.422 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      480 |     118 |    1347 |            0 |    +0.6% |  -0.240 | -74.746 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      490 |     118 |    1347 |            0 |    +0.6% |  -0.240 | -74.746 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      500 |     118 |    1347 |            0 |    +0.6% |  -0.240 | -74.746 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      510 |     118 |    1352 |            0 |    +0.6% |  -0.240 | -69.205 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      520 |     118 |    1352 |            0 |    +0.6% |  -0.240 | -69.205 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      530 |     118 |    1352 |            0 |    +0.6% |  -0.240 | -69.205 | u_weight_memory.GEN_SRAM[2].u_sram/we_in
+      540 |     118 |    1358 |            0 |    +0.6% |  -0.192 | -68.812 | u_weight_memory.GEN_SRAM[3].u_sram/we_in
+      550 |     118 |    1366 |            0 |    +0.6% |  -0.156 | -67.356 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+      560 |     118 |    1366 |            0 |    +0.6% |  -0.156 | -67.356 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+      570 |     118 |    1366 |            0 |    +0.6% |  -0.156 | -67.356 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+      580 |     118 |    1366 |            0 |    +0.6% |  -0.156 | -67.356 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+      590 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      600 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      610 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      620 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      630 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      640 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      650 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      660 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      670 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      680 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      690 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      700 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      710 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      720 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      730 |     118 |    1373 |            0 |    +0.6% |  -0.138 |  -5.723 | u_controller.state[0]$_DFF_P_/D
+      740 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      750 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      760 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      770 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      780 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      790 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      800 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      810 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      820 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      830 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      840 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      850 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      860 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      870 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      880 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      890 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      900 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      910 |     118 |    1376 |            0 |    +0.6% |  -0.138 |  -4.914 | u_controller.state[0]$_DFF_P_/D
+      920 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+      930 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+      940 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+      950 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+      960 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+      970 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+      980 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+      990 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+     1000 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+     1010 |     118 |    1383 |            0 |    +0.6% |  -0.138 |  -4.567 | u_controller.state[0]$_DFF_P_/D
+     1020 |     118 |    1388 |            0 |    +0.6% |  -0.138 |  -4.250 | u_controller.state[0]$_DFF_P_/D
+     1030 |     118 |    1393 |            0 |    +0.6% |  -0.138 |  -3.999 | u_controller.state[0]$_DFF_P_/D
+     1040 |     118 |    1393 |            0 |    +0.6% |  -0.138 |  -3.999 | u_controller.state[0]$_DFF_P_/D
+     1050 |     118 |    1393 |            0 |    +0.6% |  -0.138 |  -3.999 | u_controller.state[0]$_DFF_P_/D
+     1060 |     118 |    1393 |            0 |    +0.6% |  -0.138 |  -3.999 | u_controller.state[0]$_DFF_P_/D
+     1070 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1080 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1090 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1100 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1110 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1120 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1130 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1140 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1150 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1160 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1170 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1180 |     118 |    1399 |            0 |    +0.6% |  -0.051 |  -3.615 | u_input_buffer.memory[518][6]$_DFFE_PP_/D
+     1190 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1200 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1210 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1220 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1230 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1240 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1250 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1260 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1270 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1280 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1290 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1300 |     118 |    1401 |            0 |    +0.6% |  -0.046 |  -0.890 | u_input_buffer.memory[178][1]$_DFFE_PP_/D
+     1310 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1320 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1330 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1340 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1350 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1360 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1370 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1380 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1390 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1400 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1410 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1420 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1430 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1440 |     118 |    1405 |            0 |    +0.6% |  -0.028 |  -0.294 | u_input_buffer.memory[776][7]$_DFFE_PP_/D
+     1450 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1460 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1470 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1480 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1490 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1500 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1510 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1520 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1530 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1540 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1550 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1560 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1570 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1580 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1590 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1600 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1610 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1620 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1630 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1640 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1650 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1660 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1670 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1680 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1690 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1700 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1710 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1720 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1730 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1740 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1750 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1760 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1770 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1780 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1790 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1800 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1810 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1820 |     118 |    1406 |            0 |    +0.6% |  -0.003 |  -0.005 | u_controller.state[7]$_DFF_P_/D
+     1830 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1840 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1850 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1860 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1870 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1880 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1890 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1900 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1910 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1920 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1930 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1940 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1950 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1960 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1970 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1980 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     1990 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2000 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2010 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2020 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2030 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2040 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2050 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2060 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2070 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2080 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2090 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2100 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2110 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2120 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2130 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2140 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2150 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2160 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2170 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2180 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2190 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2200 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2210 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2220 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2230 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2240 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2250 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2260 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2270 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2280 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2290 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2300 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2310 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2320 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2330 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2340 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2350 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2360 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2370 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2380 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2390 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2400 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2410 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2420 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2430 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2440 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2450 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2460 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2470 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2480 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2490 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2500 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2510 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2520 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2530 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2540 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2550 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2560 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2570 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2580 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2590 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2600 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2610 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2620 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2630 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2640 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2650 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2660 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2670 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2680 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2690 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2700 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2710 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2720 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2730 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2740 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2750 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2760 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2770 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2780 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2790 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2800 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2810 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2820 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2830 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2840 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2850 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2860 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2870 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2880 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2890 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2900 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2910 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2920 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2930 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2940 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2950 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2960 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2970 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2980 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     2990 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3000 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3010 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3020 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3030 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3040 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3050 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3060 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3070 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3080 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3090 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3100 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3110 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3120 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3130 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3140 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3150 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3160 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3170 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3180 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3190 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3200 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3210 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3220 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3230 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3240 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3250 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3260 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3270 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3280 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3290 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3300 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3310 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3320 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3330 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3340 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3350 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3360 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3370 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3380 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3390 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3400 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3410 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3420 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3430 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3440 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3450 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3460 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3470 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3480 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3490 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3500 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3510 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3520 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3530 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3540 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3550 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3560 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3570 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3580 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3590 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3600 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3610 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3620 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3630 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3640 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3650 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3660 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3670 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3680 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3690 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3700 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3710 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3720 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3730 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3740 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3750 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3760 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3770 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3780 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3790 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3800 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3810 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3820 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3830 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3840 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3850 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3860 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3870 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3880 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3890 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3900 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3910 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3920 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3930 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3940 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3950 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3960 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3970 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3980 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     3990 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4000 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4010 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4020 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4030 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4040 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4050 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4060 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4070 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4080 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4090 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4100 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4110 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4120 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4130 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4140 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4150 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4160 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4170 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4180 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4190 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4200 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4210 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4220 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4230 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4240 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4250 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4260 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4270 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4280 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4290 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4300 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4310 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4320 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4330 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4340 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4350 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4360 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4370 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4380 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4390 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4400 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4410 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4420 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4430 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4440 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4450 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4460 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4470 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4480 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4490 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4500 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4510 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4520 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4530 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4540 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4550 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4560 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4570 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4580 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4590 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4600 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4610 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4620 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4630 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4640 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4650 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4660 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4670 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4680 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4690 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4700 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4710 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4720 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4730 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4740 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4750 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4760 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4770 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4780 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4790 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4800 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4810 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4820 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4830 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4840 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4850 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4860 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4870 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4880 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4890 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4900 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4910 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4920 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4930 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4940 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4950 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4960 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4970 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4980 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     4990 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5000 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5010 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5020 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5030 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5040 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5050 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5060 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5070 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5080 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5090 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5100 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5110 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5120 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5130 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5140 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5150 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5160 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5170 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5180 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5190 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5200 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5210 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5220 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5230 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5240 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5250 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5260 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5270 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5280 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5290 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5300 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5310 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5320 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5330 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5340 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5350 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5360 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5370 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5380 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5390 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5400 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5410 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5420 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5430 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5440 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5450 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5460 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5470 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5480 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5490 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5500 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5510 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5520 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5530 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5540 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5550 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5560 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5570 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5580 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5590 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5600 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5610 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5620 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5630 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5640 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5650 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5660 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5670 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5680 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5690 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5700 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5710 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5720 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5730 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5740 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5750 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5760 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5770 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5780 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5790 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5800 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5810 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5820 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5830 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5840 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5850 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5860 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5870 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5880 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5890 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5900 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5910 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5920 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5930 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5940 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5950 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5960 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5970 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5980 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     5990 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6000 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6010 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6020 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6030 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6040 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6050 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6060 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6070 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6080 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6090 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6100 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6110 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6120 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6130 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6140 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6150 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6160 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6170 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6180 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6190 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6200 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6210 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6220 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6230 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6240 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6250 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6260 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6270 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6280 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6290 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6300 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6310 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6320 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6330 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6340 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6350 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6360 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6370 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6380 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6390 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6400 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6410 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6420 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6430 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6440 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6450 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6460 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6470 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6480 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6490 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6500 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6510 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6520 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6530 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6540 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6550 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6560 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6570 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6580 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6590 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6600 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6610 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6620 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6630 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6640 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6650 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6660 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6670 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6680 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6690 |     118 |    1407 |            0 |    +0.6% |  -0.003 |  -0.003 | u_controller.state[7]$_DFF_P_/D
+     6700 |     118 |    1408 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[21]
+     6710 |     118 |    1408 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[21]
+    final |     118 |    1408 |            0 |    +0.6% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[1].u_sram/wd_in[21]
+--------------------------------------------------------------------------------------
+[INFO RSZ-0132] Resized 118 instances.
+[INFO RSZ-0032] Inserted 1408 hold buffers.
+[INFO RSZ-0506] Runtime: 13.57s
+Took 14 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+detailed_placement
+[INFO DPL-0006] Core area: 313872.55 um^2
+[INFO DPL-0007] Movable instances area: 71236.13 um^2
+[INFO DPL-0008] Fixed instances area within core: 121770.01 um^2
+[INFO DPL-0009] Utilization: 61.5%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 35881 cells
+[INFO DPL-0393]   height 81 row(s): 7 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       6288 |       804 |      2325
+        1 |       3542 |       444 |      1323
+        2 |       2229 |       383 |      1072
+        3 |       1570 |       382 |       912
+        4 |       1195 |       347 |       785
+        5 |        971 |       319 |       640
+        6 |        826 |       276 |       532
+        7 |        734 |       258 |       467
+        8 |        671 |       245 |       426
+        9 |        562 |       202 |       357
+       10 |        553 |       189 |       364
+       20 |        155 |        47 |        90
+       30 |         16 |         8 |         8
+       39 |          4 |         2 |         2
+[WARNING DPL-0700] Negotiation phase 1: violations stuck at 4 for 3 consecutive iterations.
+Using old diamond search for 2 remaining illegal cells.
+diamond recovery: recovered 1/2 stuck cells.
+Negotiation phase 2: isolation point active, 1000 iterations.
+      400 |          0 |         0 |         0
+Negotiation phase 2 converged at iteration 0.
+[INFO DPL-0500] Runtime: 2.24s
+Detailed Placement Analysis
+---------------------------------
+legalizer            negotiation
+total moves                9977
+total displacement       5711.8 u
+average displacement        0.2 u
+max displacement           53.2 u
+original HPWL          785002.3 u
+legalized HPWL         789109.8 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 193006 um^2 61% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree_ks/4_1_cts.odb
+write_sdc -no_timestamp /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree_ks/4_cts.sdc
+Elapsed time: 0:40.20[h:]min:sec. CPU time: user 63.95 sys 25.85 (223%). Peak memory: 384692KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+4_1_cts                .odb         40       90     2.23      375 13e883c4a6

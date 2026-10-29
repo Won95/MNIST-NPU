@@ -1,0 +1,880 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/3_place.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/3_place.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+clock_tree_synthesis -sink_clustering_enable -repair_clock_nets
+[INFO CTS-0050] Root buffer is CLKBUF_X3.
+[INFO CTS-0051] Sink buffer is CLKBUF_X3.
+[INFO CTS-0052] The following clock buffers will be used for CTS:
+                    CLKBUF_X3
+[INFO CTS-0049] Characterization buffer is CLKBUF_X3.
+[INFO CTS-0007] Net "clk" found for clock "MAIN_CLOCK".
+[INFO CTS-0011]  Clock net "clk" for macros has 7 sinks.
+[INFO CTS-0011]  Clock net "clk_regs" for registers has 7170 sinks.
+[INFO CTS-0008] TritonCTS found 2 clock nets.
+[INFO CTS-0097] Characterization used 1 buffer(s) types.
+[INFO CTS-0201] 7 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk.
+[INFO CTS-0028]  Total number of sinks: 7.
+[INFO CTS-0029]  Macro  sinks will be clustered in groups of up to 4 and with maximum cluster diameter of 305.1 um.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0023]  Original sink region: [(385210, 280420), (678790, 1197140)].
+[INFO CTS-0024]  Normalized sink region: [(27.515, 20.03), (48.485, 85.51)].
+[INFO CTS-0025]     Width:  20.9700.
+[INFO CTS-0026]     Height: 65.4800.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 4
+    Sub-region size: 20.9700 X 32.7400
+[INFO CTS-0034]     Segment length (rounded): 16.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 7.
+[INFO CTS-0201] 7 blockages from hard placement blockages and placed macros will be used.
+[INFO CTS-0027] Generating H-Tree topology for net clk_regs.
+[INFO CTS-0028]  Total number of sinks: 7170.
+[INFO CTS-0090]  Sinks will be clustered based on buffer max cap.
+[INFO CTS-0030]  Number of static layers: 0.
+[INFO CTS-0020]  Wire segment unit: 14000  dbu (7 um).
+[INFO CTS-0206] Best clustering solution was found from max clustering size of 9 and max clustering diameter of 110.
+[INFO CTS-0019]  Total number of sinks after clustering: 1070.
+[INFO CTS-0024]  Normalized sink region: [(1.87092, 2.16262), (74.0864, 88.3875)].
+[INFO CTS-0025]     Width:  72.2155.
+[INFO CTS-0026]     Height: 86.2248.
+ Level 1
+    Direction: Vertical
+    Sinks per sub-region: 535
+    Sub-region size: 72.2155 X 43.1124
+[INFO CTS-0034]     Segment length (rounded): 22.
+ Level 2
+    Direction: Horizontal
+    Sinks per sub-region: 268
+    Sub-region size: 36.1077 X 43.1124
+[INFO CTS-0034]     Segment length (rounded): 18.
+ Level 3
+    Direction: Vertical
+    Sinks per sub-region: 134
+    Sub-region size: 36.1077 X 21.5562
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 4
+    Direction: Horizontal
+    Sinks per sub-region: 67
+    Sub-region size: 18.0539 X 21.5562
+[INFO CTS-0034]     Segment length (rounded): 10.
+ Level 5
+    Direction: Vertical
+    Sinks per sub-region: 34
+    Sub-region size: 18.0539 X 10.7781
+[INFO CTS-0034]     Segment length (rounded): 6.
+ Level 6
+    Direction: Horizontal
+    Sinks per sub-region: 17
+    Sub-region size: 9.0269 X 10.7781
+[INFO CTS-0034]     Segment length (rounded): 4.
+ Level 7
+    Direction: Vertical
+    Sinks per sub-region: 9
+    Sub-region size: 9.0269 X 5.3891
+[INFO CTS-0034]     Segment length (rounded): 2.
+[INFO CTS-0038]  Stop criterion found. Sink region hpwl is smaller than max wirelength (591.189 um) and max number of sinks is 15.
+[INFO CTS-0035]  Number of sinks covered: 1070.
+[INFO CTS-0018]     Created 3 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 2.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 2.
+[INFO CTS-0015]     Created 3 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 3:1, 4:1..
+[INFO CTS-0017]     Max level of the clock tree: 1.
+[INFO CTS-0018]     Created 1275 clock buffers.
+[INFO CTS-0012]     Minimum number of buffers in the clock path: 6.
+[INFO CTS-0013]     Maximum number of buffers in the clock path: 6.
+[INFO CTS-0015]     Created 1275 clock nets.
+[INFO CTS-0016]     Fanout distribution for the current clock = 2:6, 3:8, 4:21, 5:55, 6:292, 7:587, 8:166, 9:24, 10:19, 11:5, 12:7, 13:2, 14:5, 15:1..
+[INFO CTS-0017]     Max level of the clock tree: 7.
+[INFO CTS-0098] Clock net "clk"
+[INFO CTS-0099]  Sinks 7
+[INFO CTS-0100]  Leaf buffers 0
+[INFO CTS-0101]  Average sink wire length 795.30 um
+[INFO CTS-0102]  Path depth 2 - 2
+[INFO CTS-0207]  Dummy loads inserted 1
+[INFO CTS-0098] Clock net "clk_regs"
+[INFO CTS-0099]  Sinks 7994
+[INFO CTS-0100]  Leaf buffers 1070
+[INFO CTS-0101]  Average sink wire length 469.68 um
+[INFO CTS-0102]  Path depth 5 - 6
+[INFO CTS-0207]  Dummy loads inserted 824
+[INFO CTS-0033] Balancing latency for clock MAIN_CLOCK
+[INFO CTS-0036]  inserted 3 delay buffers
+[INFO CTS-0037] Total number of delay buffers: 3
+[INFO CTS-0500] Runtime: 2.46s
+estimate_parasitics -placement
+detailed_placement
+[INFO DPL-0006] Core area: 313155.95 um^2
+[INFO DPL-0007] Movable instances area: 70400.36 um^2
+[INFO DPL-0008] Fixed instances area within core: 121769.21 um^2
+[INFO DPL-0009] Utilization: 61.4%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 34146 cells
+[INFO DPL-0393]   height 81 row(s): 7 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       1698 |       442 |      1247
+        1 |          0 |         0 |         0
+Negotiation phase 1 converged at iteration 1.
+[INFO DPL-0500] Runtime: 0.52s
+Detailed Placement Analysis
+---------------------------------
+legalizer            negotiation
+total moves               23407
+total displacement      19123.0 u
+average displacement        0.6 u
+max displacement            7.0 u
+original HPWL          744403.6 u
+legalized HPWL         753993.7 u
+delta HPWL                    1 %
+
+estimate_parasitics -placement
+repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+[INFO RSZ-0100] Repair move sequence: UnbufferMove SizeUpMove SwapPinsMove BufferMove CloneMove SplitLoadMove 
+[INFO RSZ-0098] No setup violations found
+[INFO RSZ-0505] Runtime: 1.27s
+[INFO RSZ-0046] Found 6555 endpoints with hold violations.
+Iteration | Resized | Buffers | Cloned Gates |   Area   |   WNS   |   TNS   | Endpoint
+--------------------------------------------------------------------------------------
+        0 |       0 |       0 |            0 |    +0.0% |  -0.451 | -1128.707 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[60]
+       10 |       9 |      18 |            0 |    +0.0% |  -0.450 | -1124.070 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[55]
+       20 |      19 |      38 |            0 |    +0.0% |  -0.449 | -1118.897 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[46]
+       30 |      29 |      58 |            0 |    +0.0% |  -0.448 | -1113.707 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[39]
+       40 |      39 |      78 |            0 |    +0.0% |  -0.447 | -1108.907 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[36]
+       50 |      49 |      98 |            0 |    +0.1% |  -0.444 | -1103.597 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[27]
+       60 |      59 |     118 |            0 |    +0.1% |  -0.442 | -1098.031 | u_weight_memory.GEN_SRAM[0].u_sram/wd_in[18]
+       70 |      65 |     156 |            0 |    +0.1% |  -0.433 | -1087.365 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[12]
+       80 |      73 |     196 |            0 |    +0.1% |  -0.433 | -1077.615 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[12]
+       90 |      82 |     236 |            0 |    +0.1% |  -0.433 | -1067.945 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[12]
+      100 |      88 |     276 |            0 |    +0.1% |  -0.433 | -1056.065 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[12]
+      110 |      97 |     316 |            0 |    +0.2% |  -0.433 | -1045.692 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[12]
+      120 |     107 |     352 |            0 |    +0.2% |  -0.428 | -1036.704 | u_weight_memory.GEN_SRAM[3].u_sram/wd_in[11]
+      130 |     117 |     401 |            0 |    +0.2% |  -0.394 | -1026.886 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[6]
+      140 |     118 |     482 |            0 |    +0.2% |  -0.394 | -1017.837 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[6]
+      150 |     119 |     569 |            0 |    +0.3% |  -0.394 | -1007.338 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[6]
+      160 |     121 |     655 |            0 |    +0.3% |  -0.394 | -996.755 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[6]
+      170 |     125 |     736 |            0 |    +0.3% |  -0.394 | -986.654 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[6]
+      180 |     132 |     813 |            0 |    +0.4% |  -0.394 | -976.588 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[6]
+      190 |     136 |     889 |            0 |    +0.4% |  -0.394 | -968.047 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[6]
+      200 |     143 |     929 |            0 |    +0.4% |  -0.390 | -962.180 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      210 |     145 |     939 |            0 |    +0.4% |  -0.387 | -960.810 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[5]
+      220 |     146 |     949 |            0 |    +0.4% |  -0.385 | -960.143 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[1]
+      230 |     146 |     959 |            0 |    +0.4% |  -0.385 | -960.119 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[1]
+      240 |     150 |     985 |            0 |    +0.5% |  -0.377 | -955.700 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[0]
+      250 |     152 |    1003 |            0 |    +0.5% |  -0.377 | -953.002 | u_weight_memory.GEN_SRAM[3].u_sram/addr_in[0]
+      260 |     157 |    1054 |            0 |    +0.5% |  -0.359 | -893.354 | u_controller.state[0]$_DFF_P_/D
+      270 |     162 |    1125 |            0 |    +0.5% |  -0.357 | -817.661 | u_input_buffer.memory[783][6]$_DFFE_PP_/D
+      280 |     165 |    1178 |            0 |    +0.5% |  -0.349 | -730.469 | u_input_buffer.memory[459][5]$_DFFE_PP_/D
+      290 |     165 |    1212 |            0 |    +0.5% |  -0.349 | -710.451 | u_input_buffer.memory[459][5]$_DFFE_PP_/D
+      300 |     165 |    1243 |            0 |    +0.6% |  -0.349 | -532.582 | u_input_buffer.memory[459][5]$_DFFE_PP_/D
+      310 |     165 |    1281 |            0 |    +0.6% |  -0.335 | -439.346 | u_input_buffer.memory[472][1]$_DFFE_PP_/D
+      320 |     165 |    1294 |            0 |    +0.6% |  -0.335 | -424.902 | u_input_buffer.memory[472][1]$_DFFE_PP_/D
+      330 |     165 |    1310 |            0 |    +0.6% |  -0.335 | -422.234 | u_input_buffer.memory[472][1]$_DFFE_PP_/D
+      340 |     165 |    1333 |            0 |    +0.6% |  -0.327 | -343.581 | u_input_buffer.memory[632][0]$_DFFE_PP_/D
+      350 |     165 |    1362 |            0 |    +0.6% |  -0.327 | -307.313 | u_input_buffer.memory[632][0]$_DFFE_PP_/D
+      360 |     165 |    1368 |            0 |    +0.6% |  -0.307 | -249.311 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      370 |     165 |    1397 |            0 |    +0.6% |  -0.307 | -130.994 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      380 |     165 |    1397 |            0 |    +0.6% |  -0.307 | -130.994 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      390 |     165 |    1398 |            0 |    +0.6% |  -0.307 | -130.994 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      400 |     165 |    1407 |            0 |    +0.6% |  -0.307 | -129.393 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      410 |     165 |    1407 |            0 |    +0.6% |  -0.307 | -129.393 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      420 |     165 |    1407 |            0 |    +0.6% |  -0.307 | -129.393 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      430 |     165 |    1407 |            0 |    +0.6% |  -0.307 | -129.393 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      440 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      450 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      460 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      470 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      480 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      490 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      500 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      510 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      520 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      530 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      540 |     165 |    1415 |            0 |    +0.6% |  -0.307 | -129.209 | u_input_buffer.memory[773][7]$_DFFE_PP_/D
+      550 |     166 |    1419 |            0 |    +0.6% |  -0.229 | -57.411 | u_input_buffer.memory[528][7]$_DFFE_PP_/D
+      560 |     167 |    1426 |            0 |    +0.6% |  -0.182 | -22.849 | u_input_buffer.memory[759][4]$_DFFE_PP_/D
+      570 |     167 |    1440 |            0 |    +0.6% |  -0.147 |  -2.341 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      580 |     167 |    1440 |            0 |    +0.6% |  -0.147 |  -2.341 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      590 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      600 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      610 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      620 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      630 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      640 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      650 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      660 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      670 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      680 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      690 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      700 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      710 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      720 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      730 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      740 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      750 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      760 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      770 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      780 |     167 |    1446 |            0 |    +0.6% |  -0.147 |  -1.880 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      790 |     167 |    1448 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      800 |     167 |    1448 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      810 |     167 |    1448 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      820 |     167 |    1448 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      830 |     167 |    1448 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      840 |     167 |    1449 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      850 |     167 |    1449 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      860 |     167 |    1449 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      870 |     167 |    1449 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      880 |     167 |    1449 |            0 |    +0.6% |  -0.147 |  -0.894 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      890 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      900 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      910 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      920 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      930 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      940 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      950 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      960 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      970 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      980 |     167 |    1451 |            0 |    +0.6% |  -0.147 |  -0.856 | u_weight_memory.GEN_SRAM[4].u_sram/we_in
+      990 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1000 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1010 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1020 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1030 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1040 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1050 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1060 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1070 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1080 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1090 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1100 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1110 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1120 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1130 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1140 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1150 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1160 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1170 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1180 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1190 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1200 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1210 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1220 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1230 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1240 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1250 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1260 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1270 |     167 |    1457 |            0 |    +0.7% |  -0.027 |  -0.195 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1280 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1290 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1300 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1310 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1320 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1330 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1340 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1350 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1360 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1370 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1380 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1390 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1400 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1410 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1420 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1430 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1440 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1450 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1460 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1470 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1480 |     167 |    1458 |            0 |    +0.7% |  -0.027 |  -0.192 | u_input_buffer.memory[27][2]$_DFFE_PP_/D
+     1490 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1500 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1510 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1520 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1530 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1540 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1550 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1560 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1570 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1580 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1590 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1600 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1610 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1620 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1630 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1640 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1650 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1660 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1670 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1680 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1690 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1700 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1710 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1720 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1730 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1740 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1750 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1760 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1770 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1780 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1790 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1800 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1810 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1820 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1830 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1840 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1850 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1860 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1870 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1880 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1890 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1900 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1910 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1920 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1930 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1940 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1950 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1960 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1970 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1980 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     1990 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2000 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2010 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2020 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2030 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2040 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2050 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2060 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2070 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2080 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2090 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2100 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2110 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2120 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2130 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2140 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2150 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2160 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2170 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2180 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2190 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2200 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2210 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2220 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2230 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2240 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2250 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2260 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2270 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2280 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2290 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2300 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2310 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2320 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2330 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2340 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2350 |     167 |    1460 |            0 |    +0.7% |  -0.012 |  -0.024 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2360 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2370 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2380 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2390 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2400 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2410 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2420 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2430 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2440 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2450 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2460 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2470 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2480 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2490 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2500 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2510 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2520 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2530 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2540 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2550 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2560 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2570 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2580 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2590 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2600 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2610 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2620 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2630 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2640 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2650 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2660 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2670 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2680 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2690 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2700 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2710 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2720 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2730 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2740 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2750 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2760 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2770 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2780 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2790 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2800 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2810 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2820 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2830 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2840 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2850 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2860 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2870 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2880 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2890 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2900 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2910 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2920 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2930 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2940 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2950 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2960 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2970 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2980 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     2990 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3000 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3010 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3020 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3030 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3040 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3050 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3060 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3070 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3080 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3090 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3100 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3110 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3120 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3130 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3140 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3150 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3160 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3170 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3180 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3190 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3200 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3210 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3220 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3230 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3240 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3250 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3260 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3270 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3280 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3290 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3300 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3310 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3320 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3330 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3340 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3350 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3360 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3370 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3380 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3390 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3400 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3410 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3420 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3430 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3440 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3450 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3460 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3470 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3480 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3490 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3500 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3510 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3520 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3530 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3540 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3550 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3560 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3570 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3580 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3590 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3600 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3610 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3620 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3630 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3640 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3650 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3660 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3670 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3680 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3690 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3700 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3710 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3720 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3730 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3740 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3750 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3760 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3770 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3780 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3790 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3800 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3810 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3820 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3830 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3840 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3850 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3860 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3870 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3880 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3890 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3900 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3910 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3920 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3930 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3940 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3950 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3960 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3970 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3980 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     3990 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4000 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4010 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4020 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4030 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4040 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4050 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4060 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4070 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4080 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4090 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4100 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4110 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4120 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4130 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4140 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4150 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4160 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4170 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4180 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4190 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4200 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4210 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4220 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4230 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4240 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4250 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4260 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4270 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4280 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4290 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4300 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4310 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4320 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4330 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4340 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4350 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4360 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4370 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4380 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4390 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4400 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4410 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4420 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4430 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4440 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4450 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4460 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4470 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4480 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4490 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4500 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4510 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4520 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4530 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4540 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4550 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4560 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4570 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4580 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4590 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4600 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4610 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4620 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4630 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4640 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4650 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4660 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4670 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4680 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4690 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4700 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4710 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4720 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4730 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4740 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4750 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4760 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4770 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4780 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4790 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4800 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4810 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4820 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4830 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4840 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4850 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4860 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4870 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4880 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4890 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4900 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4910 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4920 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4930 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4940 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4950 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4960 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4970 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4980 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     4990 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5000 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5010 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5020 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5030 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5040 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5050 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5060 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5070 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5080 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5090 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5100 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5110 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5120 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5130 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5140 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5150 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5160 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5170 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5180 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5190 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5200 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5210 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5220 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5230 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5240 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5250 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5260 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5270 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5280 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5290 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5300 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5310 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5320 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5330 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5340 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5350 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5360 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5370 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5380 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5390 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5400 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5410 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5420 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5430 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5440 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5450 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5460 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5470 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5480 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5490 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5500 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5510 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5520 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5530 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5540 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5550 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5560 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5570 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5580 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5590 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5600 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5610 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5620 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5630 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5640 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5650 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5660 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5670 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5680 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5690 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5700 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5710 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5720 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5730 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5740 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5750 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5760 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5770 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5780 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5790 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5800 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5810 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5820 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5830 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5840 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5850 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5860 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5870 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5880 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5890 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5900 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5910 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5920 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5930 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5940 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5950 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5960 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5970 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5980 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     5990 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6000 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6010 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6020 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6030 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6040 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6050 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6060 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6070 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6080 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6090 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6100 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6110 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6120 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6130 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6140 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6150 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6160 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6170 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6180 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6190 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6200 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6210 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6220 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6230 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6240 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6250 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6260 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6270 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6280 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6290 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6300 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6310 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6320 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6330 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6340 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6350 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6360 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6370 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6380 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6390 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6400 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6410 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6420 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6430 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6440 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6450 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6460 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6470 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6480 |     167 |    1461 |            0 |    +0.7% |  -0.012 |  -0.023 | u_controller.weight_addr[0]$_SDFFE_PN0P_/D
+     6490 |     167 |    1462 |            0 |    +0.7% |  -0.011 |  -0.011 | u_controller.input_addr[0]$_SDFFE_PN0P_/D
+     6500 |     167 |    1463 |            0 |    +0.7% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[4].u_sram/wd_in[4]
+     6510 |     167 |    1463 |            0 |    +0.7% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[4].u_sram/wd_in[4]
+     6520 |     167 |    1463 |            0 |    +0.7% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[4].u_sram/wd_in[4]
+     6530 |     167 |    1463 |            0 |    +0.7% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[4].u_sram/wd_in[4]
+     6540 |     167 |    1463 |            0 |    +0.7% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[4].u_sram/wd_in[4]
+     6550 |     167 |    1463 |            0 |    +0.7% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[4].u_sram/wd_in[4]
+    final |     167 |    1463 |            0 |    +0.7% |   0.000 |   0.000 | u_weight_memory.GEN_SRAM[4].u_sram/wd_in[4]
+--------------------------------------------------------------------------------------
+[INFO RSZ-0132] Resized 167 instances.
+[INFO RSZ-0032] Inserted 1463 hold buffers.
+[INFO RSZ-0506] Runtime: 13.73s
+Took 15 seconds: repair_timing -setup_margin 0 -hold_margin 0 -repair_tns 100 -verbose
+detailed_placement
+[INFO DPL-0006] Core area: 313155.95 um^2
+[INFO DPL-0007] Movable instances area: 71656.68 um^2
+[INFO DPL-0008] Fixed instances area within core: 121769.21 um^2
+[INFO DPL-0009] Utilization: 61.8%
+[INFO DPL-0005] Diamond search max displacement: +/- 500 sites horizontally, +/- 100 rows vertically.
+[INFO DPL-1102] Legalizing using negotiation legalizer.
+[INFO DPL-1103] Negotiation base search window: +/-20 sites horizontally, +/-5 rows vertically 
+	Automatic search window extension enabled.
+	Search window extendable up to the max displacement cap of +/-500 sites, +/-100 rows near walls.
+[INFO DPL-1104] NegotiationLegalizer DRC penalty: 5.
+[INFO DPL-0392] Negotiation cell height distribution (2 unique row-count(s)):
+[INFO DPL-0393]   height 1 row(s): 35609 cells
+[INFO DPL-0393]   height 81 row(s): 7 cells
+          |      Total |  Illegal |  Illegal
+Iteration | Violations |    Cells |    Sites
+---------------------------------------------
+        0 |       6971 |       911 |      2609
+        1 |       3881 |       471 |      1413
+        2 |       2414 |       416 |      1167
+        3 |       1637 |       423 |      1044
+        4 |       1327 |       407 |       870
+        5 |       1244 |       396 |       812
+        6 |       1056 |       356 |       700
+        7 |        865 |       307 |       555
+        8 |        760 |       272 |       485
+        9 |        643 |       241 |       402
+       10 |        578 |       216 |       353
+       20 |         66 |        32 |        34
+       30 |         28 |        14 |        14
+       40 |         12 |         6 |         6
+       41 |         12 |         6 |         6
+[WARNING DPL-0700] Negotiation phase 1: violations stuck at 12 for 3 consecutive iterations.
+Using old diamond search for 6 remaining illegal cells.
+diamond recovery: recovered 3/6 stuck cells.
+Negotiation phase 2: isolation point active, 1000 iterations.
+      400 |          0 |         0 |         0
+Negotiation phase 2 converged at iteration 0.
+[INFO DPL-0500] Runtime: 2.30s
+Detailed Placement Analysis
+---------------------------------
+legalizer            negotiation
+total moves               10461
+total displacement       5160.1 u
+average displacement        0.1 u
+max displacement           46.6 u
+original HPWL          779140.7 u
+legalized HPWL         782166.1 u
+delta HPWL                    0 %
+
+estimate_parasitics -placement
+Report metrics stage 4, cts final...
+
+==========================================================================
+cts final report_design_area
+--------------------------------------------------------------------------
+Design area 193426 um^2 62% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/4_1_cts.odb
+write_sdc -no_timestamp /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/4_cts.sdc
+Elapsed time: 0:40.53[h:]min:sec. CPU time: user 64.40 sys 26.42 (224%). Peak memory: 472004KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+4_1_cts                .odb         40       91     2.24      460 24294a2294

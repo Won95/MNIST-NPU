@@ -1,0 +1,77 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/2_1_floorplan.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/2_1_floorplan.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+source /home/skdml/MNIST-NPU/physical_design/designs/nangate45/mnist_npu/macro.tcl
+==================================================
+ SRAM Manual Macro Placement
+==================================================
+Core X range : 10.07 ~ 521.93 um
+Core Y range : 11.2 ~ 623.0 um
+Core width   : 511.85999999999996 um
+Core height  : 611.8 um
+
+----- Horizontal Placement -----
+Left SRAM X        : 40.07 um
+Right SRAM X       : 339.35999999999996 um
+Left boundary gap  : 30.0 um
+Right boundary gap : 30.0 um
+Center SRAM gap    : 146.71999999999997 um
+
+----- Vertical Placement -----
+Top boundary margin    : 20.0 um
+Bottom boundary margin : 20.0 um
+Left column SRAM gap   : 115.79999999999995 um
+Right column SRAM gap  : 39.39999999999998 um
+
+----- Left Column (3 SRAMs, MY) -----
+Placing u_weight_memory.GEN_SRAM\[0\].u_sram at (40.07, 489.6), orientation=MY
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[0\].u_sram placed. Bounding box (40.070um, 489.615um), (192.640um, 603.015um). Orientation MY
+Placing u_weight_memory.GEN_SRAM\[1\].u_sram at (40.07, 260.4000000000001), orientation=MY
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[1\].u_sram placed. Bounding box (40.070um, 260.435um), (192.640um, 373.835um). Orientation MY
+Placing u_weight_memory.GEN_SRAM\[2\].u_sram at (40.07, 31.200000000000102), orientation=MY
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[2\].u_sram placed. Bounding box (40.070um, 31.255um), (192.640um, 144.655um). Orientation MY
+
+----- Right Column (4 SRAMs, R0) -----
+Placing u_weight_memory.GEN_SRAM\[3\].u_sram at (339.35999999999996, 489.6), orientation=R0
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[3\].u_sram placed. Bounding box (339.360um, 489.615um), (491.930um, 603.015um). Orientation R0
+Placing u_weight_memory.GEN_SRAM\[4\].u_sram at (339.35999999999996, 336.80000000000007), orientation=R0
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[4\].u_sram placed. Bounding box (339.360um, 336.875um), (491.930um, 450.275um). Orientation R0
+Placing u_weight_memory.GEN_SRAM\[5\].u_sram at (339.35999999999996, 184.00000000000006), orientation=R0
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[5\].u_sram placed. Bounding box (339.360um, 184.135um), (491.930um, 297.535um). Orientation R0
+Placing u_weight_memory.GEN_SRAM\[6\].u_sram at (339.35999999999996, 31.200000000000045), orientation=R0
+[INFO MPL-0035] Macro u_weight_memory.GEN_SRAM\[6\].u_sram placed. Bounding box (339.360um, 31.255um), (491.930um, 144.655um). Orientation R0
+
+==================================================
+ SRAM Manual Placement Completed
+==================================================
+Total SRAM macros : 7
+Left column       : 3 (MY)
+Right column      : 4 (R0)
+Center gap        : 146.71999999999997 um
+Left vertical gap : 115.79999999999995 um
+Right vertical gap: 39.39999999999998 um
+==================================================
+rtl_macro_placer -max_num_level 2 -min_channel_size "44.8 30.24" -pin_aware_channels -min_ar 0.33 -area_weight 0.1 -wirelength_weight 100.0 -outline_weight 100.0 -boundary_weight 50.0 -notch_weight 50.0 -report_directory /home/skdml/MNIST-NPU/physical_design/objects/nangate45/mnist_npu/exp_arith_tree/rtlmp -fence_lx 0.0 -fence_ly 0.0 -fence_ux 0.0 -fence_uy 0.0 -target_util 0.3
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[0\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[1\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[2\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[3\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[4\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[5\].u_sram.
+[INFO MPL-0062] Found fixed macro u_weight_memory.GEN_SRAM\[6\].u_sram.
+[INFO MPL-0017] No unfixed macros.
+[INFO MPL-0013] Skipping macro placement.
+[INFO MPL-0500] Runtime: 0.00s
+Design area 188967 um^2 60% utilization.
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/2_2_floorplan_macro.odb
+Elapsed time: 0:00.39[h:]min:sec. CPU time: user 0.26 sys 0.13 (101%). Peak memory: 133504KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+2_2_floorplan_macro    .odb          0        0     1.00      130 c3804578ba

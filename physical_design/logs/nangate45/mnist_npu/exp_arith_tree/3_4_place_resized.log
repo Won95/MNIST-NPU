@@ -1,0 +1,74 @@
+OpenROAD 26Q4-110-g91e5f5ff2f 
+Features included (+) or not (-): -GPU +GUI -Python
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ORD-0030] Using 16 thread(s).
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/NangateOpenCellLibrary_typical.lib
+read_liberty /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/lib/fakeram45_512x64.lib
+read_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/3_3_place_gp.odb
+read_sdc /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/2_floorplan.sdc
+source /home/skdml/OpenROAD-flow-scripts/flow/platforms/nangate45/setRC.tcl
+estimate_parasitics -placement
+Perform buffer insertion and gate resizing...
+repair_design -verbose -cap_margin 25
+Iteration |   Area    | Resized | Buffers | Nets repaired | Remaining
+---------------------------------------------------------------------
+        0 |     +0.0% |       0 |       0 |             0 |     37754
+     1000 |     +0.0% |       0 |       3 |             3 |     36754
+     2000 |     +0.0% |       0 |      12 |            12 |     35754
+     3000 |     +0.0% |       0 |      26 |            25 |     34754
+     4000 |     +0.0% |       0 |      37 |            36 |     33754
+     5000 |     +0.0% |       0 |      49 |            48 |     32754
+     6000 |     +0.0% |       0 |      52 |            50 |     31754
+     7000 |     +0.0% |       0 |      57 |            55 |     30754
+     8000 |     +0.0% |       0 |      61 |            59 |     29754
+     9000 |     +0.1% |       0 |      84 |            82 |     28754
+    10000 |     +0.1% |       0 |     106 |           104 |     27754
+    11000 |     +0.1% |       1 |     127 |           125 |     26754
+    12000 |     +0.1% |       1 |     139 |           135 |     25754
+    13000 |     +0.1% |       1 |     142 |           138 |     24754
+    14000 |     +0.1% |       1 |     215 |           211 |     23754
+    15000 |     +0.2% |       1 |     355 |           351 |     22754
+    16000 |     +0.3% |       1 |     390 |           386 |     21754
+    17000 |     +0.3% |       1 |     410 |           404 |     20754
+    18000 |     +0.4% |       1 |     556 |           550 |     19754
+    19000 |     +0.4% |       1 |     573 |           567 |     18754
+    20000 |     +0.4% |       1 |     612 |           606 |     17754
+    21000 |     +0.5% |       1 |     668 |           662 |     16754
+    22000 |     +0.5% |       1 |     681 |           675 |     15754
+    23000 |     +0.5% |       1 |     691 |           685 |     14754
+    24000 |     +0.5% |       1 |     691 |           685 |     13754
+    25000 |     +0.5% |       1 |     691 |           685 |     12754
+    26000 |     +0.5% |       1 |     691 |           685 |     11754
+    27000 |     +0.5% |       1 |     691 |           685 |     10754
+    28000 |     +0.5% |       1 |     691 |           685 |      9754
+    29000 |     +0.5% |       1 |     691 |           685 |      8754
+    30000 |     +0.5% |       1 |     691 |           685 |      7754
+    31000 |     +0.5% |       1 |     691 |           685 |      6754
+    32000 |     +0.5% |       1 |     691 |           685 |      5754
+    33000 |     +0.5% |       1 |     691 |           685 |      4754
+    34000 |     +0.5% |       1 |     691 |           685 |      3754
+    35000 |     +0.5% |       1 |     691 |           685 |      2754
+    36000 |     +0.5% |       1 |     735 |           729 |      1754
+    37000 |     +0.5% |       1 |     740 |           734 |       754
+    final |     +0.5% |       1 |     741 |           735 |         0
+---------------------------------------------------------------------
+[INFO RSZ-0034] Found 2 slew violations.
+[INFO RSZ-0036] Found 735 capacitance violations.
+[INFO RSZ-0039] Resized 1 instances.
+[INFO RSZ-0038] Inserted 741 buffers in 735 nets.
+[INFO RSZ-0504] Runtime: 2.63s
+Floating nets: 
+Report metrics stage 3, resizer...
+
+==========================================================================
+resizer report_design_area
+--------------------------------------------------------------------------
+Design area 189849 um^2 61% utilization.
+Instance count before 31305, after 32046
+Pin count before 110102, after 111584
+write_db /home/skdml/MNIST-NPU/physical_design/results/nangate45/mnist_npu/exp_arith_tree/3_4_place_resized.odb
+Elapsed time: 0:19.95[h:]min:sec. CPU time: user 24.99 sys 8.51 (167%). Peak memory: 328516KB.
+Log                    Ext     Elapsed      CPU     CPU/ Peak Mem sha1sum
+                                     s        s  Elapsed       MB [0:10)
+3_4_place_resized      .odb         19       34     1.68      320 5beea9d226
