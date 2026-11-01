@@ -1,0 +1,77 @@
+name: Build MNIST NPU full-color portfolio
+on:
+  push:
+    branches: [portfolio-color-20261101]
+    paths:
+      - "portfolio/build_color_portfolio.py"
+      - ".github/workflows/build_color_portfolio.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install Korean fonts and slide converter
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-nanum libreoffice-impress poppler-utils
+          python -m pip install --upgrade python-pptx pillow pymupdf
+      - name: Generate slides from original PNGs
+        run: python portfolio/build_color_portfolio.py
+      - name: Export and verify color PDF
+        run: |
+          mkdir -p portfolio/output
+          libreoffice -env:UserInstallation=file:///tmp/libreoffice_npu --headless \
+            --convert-to pdf --outdir portfolio/output \
+            portfolio/output/MNIST_NPU_컬러원본_기술포트폴리오.pptx
+          python - <<'PY'
+          from pathlib import Path
+          import fitz
+          from pptx import Presentation
+          from PIL import Image
+          base=Path('portfolio/output')
+          pptx=base/'MNIST_NPU_컬러원본_기술포트폴리오.pptx'
+          pdf=base/'MNIST_NPU_컬러원본_기술포트폴리오.pdf'
+          assert pptx.exists() and pdf.exists(), "Missing generated output"
+          prs=Presentation(pptx)
+          assert len(prs.slides)==13, len(prs.slides)
+          doc=fitz.open(pdf)
+          assert len(doc)==13, len(doc)
+          for i in [6,7,8,9,10]:
+              im=doc[i].get_pixmap(matrix=fitz.Matrix(1,1), alpha=False)
+              path=base/f'preview_page_{i+1:02d}.png'
+              im.save(str(path))
+              rgb=Image.open(path).convert('RGB')
+              sat=sum(max(p)-min(p) for p in list(rgb.resize((128,72)).getdata()))/(128*72)
+              print('page',i+1,'average channel difference',round(sat,1))
+              if i == 9:
+                  assert sat > 4, "IR-drop photo unexpectedly grayscale"
+          print("VERIFIED: 13 slides / 13 PDF pages / genuine color PNGs included")
+          PY
+      - name: Upload PDF, PPTX and visual checks
+        uses: actions/upload-artifact@v4
+        with:
+          name: MNIST_NPU_Full_Color_Portfolio
+          path: portfolio/output/
+          retention-days: 90
+      - name: Commit generated PDF and PPTX to portfolio branch
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f portfolio/output/*.pptx portfolio/output/*.pdf
+          if git diff --cached --quiet; then
+            echo "No generated files changed"
+          else
+            git commit -m "portfolio: publish generated full-color PDF and PPTX"
+            git push origin HEAD:portfolio-color-20261101
+          fi
