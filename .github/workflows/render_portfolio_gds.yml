@@ -1,0 +1,44 @@
+name: Render actual MNIST NPU GDSII
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - portfolio-color-20261101
+    paths:
+      - "portfolio/render_gds.rb"
+      - ".github/workflows/render_portfolio_gds.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+          filter: blob:none
+          sparse-checkout: |
+            portfolio/render_gds.rb
+            physical_design/results/nangate45/mnist_npu/exp_arith_tree_ks/6_final.gds
+          sparse-checkout-cone-mode: false
+      - name: Install KLayout
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y klayout xvfb
+      - name: Render GDSII in KLayout
+        env:
+          QT_QPA_PLATFORM: offscreen
+        run: |
+          xvfb-run -a klayout -z -nc -r portfolio/render_gds.rb \
+            -rd infile=physical_design/results/nangate45/mnist_npu/exp_arith_tree_ks/6_final.gds \
+            -rd outfile=portfolio/gds_final.png
+          file portfolio/gds_final.png
+          ls -lh portfolio/gds_final.png
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MNIST_NPU_Actual_GDSII_KLayout_Image
+          path: portfolio/gds_final.png
+          retention-days: 30
