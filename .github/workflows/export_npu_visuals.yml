@@ -1,0 +1,37 @@
+name: Export selected original OpenROAD report images
+on:
+  workflow_dispatch:
+  push:
+    branches: [portfolio-color-20261101]
+    paths: [.github/workflows/export_npu_visuals.yml]
+permissions:
+  contents: read
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: |
+            physical_design/reports/nangate45/mnist_npu/exp_arith_tree_ks
+          sparse-checkout-cone-mode: false
+      - name: Validate report images
+        run: |
+          set -e
+          p=physical_design/reports/nangate45/mnist_npu/exp_arith_tree_ks
+          for f in final_placement.webp.png cts_default_MAIN_CLOCK_layout.webp.png final_routing.webp.png final_congestion.webp.png final_ir_drop.webp.png final_worst_path.webp.png; do
+            test -s "$p/$f"
+            file "$p/$f"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: MNIST_NPU_Original_OpenROAD_Images
+          path: |
+            physical_design/reports/nangate45/mnist_npu/exp_arith_tree_ks/final_placement.webp.png
+            physical_design/reports/nangate45/mnist_npu/exp_arith_tree_ks/cts_default_MAIN_CLOCK_layout.webp.png
+            physical_design/reports/nangate45/mnist_npu/exp_arith_tree_ks/final_routing.webp.png
+            physical_design/reports/nangate45/mnist_npu/exp_arith_tree_ks/final_congestion.webp.png
+            physical_design/reports/nangate45/mnist_npu/exp_arith_tree_ks/final_ir_drop.webp.png
+            physical_design/reports/nangate45/mnist_npu/exp_arith_tree_ks/final_worst_path.webp.png
+          retention-days: 3
